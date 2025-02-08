@@ -8,17 +8,17 @@ const HeroSection = () => {
         <div className="flex justify-center items-center text-center lg:text-left">
           <div className="hero-section-content p-6 flex flex-col justify-center items-center lg:items-start">
             <h1 className="uppercase font-extrabold text-4xl sm:text-5xl lg:text-6xl mb-4">
-              Find Your <br />
-              True Style <br />
+              Discover Your <br />
+              Authentic Style <br />
               Here
             </h1>
             <p className="text-lg lg:text-xl mb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              eveniet dolore unde quod nihil ex dolor nemo sunt rerum debitis
-              eaque dolorum, provident sapiente impedit voluptatem! Tempora
-              dicta, porro vel laborum dolores deserunt suscipit libero enim
-              iusto ducimus odio fugiat aspernatur necessitatibus, modi
-              dignissimos? Rem labore officiis sapiente vitae facilis!
+              Unlock the essence of your individuality with our exclusive style
+              guide. Meticulously tailored to highlight your best features, our
+              curated collection guarantees you stand out with unwavering
+              confidence and unparalleled elegance. Dare to be unique—embrace
+              your true style today and let your authentic self shine like never
+              before.
             </p>
             <button className="mt-2 pr-8 pl-8 pt-4 pb-4 rounded-ee-3xl rounded-tl-3xl bg-black text-white flex justify-center items-center">
               Shop now
@@ -29,10 +29,10 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className=" p-4 hero-image-container h-full w-full object-cover">
+        <div className=" p-4 hero-image-container h-[90vh] w-full object-cover">
           <img
             className="h-full w-full object-cover rounded-tl-3xl rounded-br-4xl"
-            src="https://images.unsplash.com/photo-1632149933606-fa45623682ee?q=80&w=1967&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="ellee-morr-Yx_Fw-XYroU-unsplash.jpg"
             alt="Fashion"
           />
         </div>

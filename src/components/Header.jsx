@@ -6,9 +6,9 @@ import { RiMenu3Fill } from "react-icons/ri";
 const Header = () => {
   return (
     <Fragment>
-      <div className=" header-container h-20 w-screen grid grid-cols-2 pt-1 pr-2 pb-1 pl-2 lg:grid-cols-3 ">
+      <div className="grid w-screen h-20 grid-cols-2 pt-1 pb-1 pl-2 pr-2 header-container lg:grid-cols-3">
         <div className="items-center justify-start flex-auto hidden w-auto h-full lg:flex">
-          <ul className="pl-4 flex items-center justify-center w-auto h-auto font-bold text-center uppercase flexwrap">
+          <ul className="flex items-center justify-center w-auto h-auto pl-4 font-bold text-center uppercase flexwrap">
             <NavLink>
               <li className="m-2">Home</li>
             </NavLink>
@@ -34,9 +34,9 @@ const Header = () => {
           </NavLink>
         </div>
 
-        <div className="flex items-center justify-end w-auto h-full pr-4 overflow-visible lg:flex header-right-container space-x-4">
-          <div className="m-3 inline-block">
-            <button className="text-3xl grid place-items-center">
+        <div className="flex items-center justify-end w-auto h-full pr-4 space-x-4 overflow-visible lg:flex header-right-container">
+          <div className="inline-block m-3">
+            <button className="grid text-3xl place-items-center">
               <IoIosSearch />
             </button>
           </div>
@@ -48,9 +48,9 @@ const Header = () => {
               </span>
             </button>
           </div>
-          <div className="m-3 hidden lg:inline-block">
+          <div className="hidden m-3 lg:inline-block">
             <NavLink>
-              <button className="pt-2 pb-2 pl-8 pr-8 font-bold text-white uppercase bg-indigo-500 flex rounded-xs transition-all ease-in hover:bg-indigo-300">
+              <button className="flex pt-2 pb-2 pl-8 pr-8 font-bold text-white uppercase transition-all ease-in bg-black rounded-xs hover:bg-indigo-300">
                 Login
               </button>
             </NavLink>
