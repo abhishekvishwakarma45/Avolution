@@ -6,7 +6,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 const Header = () => {
   return (
     <Fragment>
-      <div className="grid w-full h-20 grid-cols-2 pt-1 pr-2 pb-1 pl-2  absolute  top-0 z-999 lg:grid-cols-3 ">
+      <div className=" header-container h-20 w-screen grid grid-cols-2 pt-1 pr-2 pb-1 pl-2 lg:grid-cols-3 ">
         <div className="items-center justify-start flex-auto hidden w-auto h-full lg:flex">
           <ul className="pl-4 flex items-center justify-center w-auto h-auto font-bold text-center uppercase flexwrap">
             <NavLink>
@@ -24,7 +24,7 @@ const Header = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="grid w-[30vw] h-20 text-4xl place-items-left lg:place-items-center logo-container">
+        <div className="grid w-auto h-20 text-4xl place-items-left lg:place-items-center logo-container">
           <NavLink>
             <img
               className="object-contain w-auto h-20 mix-blend-multiply"
