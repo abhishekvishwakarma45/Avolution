@@ -6,15 +6,17 @@ import { RiMenu3Fill } from "react-icons/ri";
 const Header = () => {
   return (
     <Fragment>
-      <div className="grid w-screen h-20 grid-cols-2 pt-1 pb-1 pl-2 pr-2 header-container lg:grid-cols-3">
+      <div className="grid w-screen h-15 grid-cols-2 pt-1 pb-1 pl-2 pr-2 header-container lg:grid-cols-3">
         <div className="items-center justify-start flex-auto hidden w-auto h-full lg:flex">
           <ul className="flex items-center justify-center w-auto h-auto pl-4 font-bold text-center uppercase flexwrap">
             <NavLink>
               <li className="m-2">Home</li>
             </NavLink>
-            <NavLink>
+            {/* <NavLink>/ */}
+            <a href="#category">
               <li className="m-2">Categories</li>
-            </NavLink>
+            </a>
+            {/* </NavLink> */}
 
             <NavLink>
               <li className="m-2">About</li>
@@ -27,7 +29,7 @@ const Header = () => {
         <div className="grid w-auto h-20 text-4xl place-items-left lg:place-items-center logo-container">
           <NavLink>
             <img
-              className="object-contain w-auto h-20 mix-blend-multiply"
+              className="object-contain w-auto h-15 mix-blend-multiply"
               src="logo-removebg-preview.png"
               alt=""
             />
@@ -43,7 +45,7 @@ const Header = () => {
           <div className="m-3">
             <button className="flex items-center justify-center text-2xl">
               <HiOutlineShoppingBag />
-              <span className="relative pl-2 pr-2 text-xl bg-red-400 right-3 bottom-3 rounded-4xl">
+              <span className="relative pl-2 pr-2 text-xl  bg-amber-300 right-3 bottom-3 rounded-4xl">
                 0
               </span>
             </button>

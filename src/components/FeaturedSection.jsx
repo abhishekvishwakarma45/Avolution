@@ -1,33 +1,26 @@
 import React from "react";
 import { Fragment } from "react";
-
+import Product from "./Product";
+import useProductContext from "./context/ProductContext";
 const FeaturedSection = () => {
+  const { featuredProducts } = useProductContext();
+
   return (
     <Fragment>
-      <div className="featured-section-container pr-4 pl-4 h-auto w-screen flex flex-col justify-center items-center lg:grid grid-cols-2 place-items-center ">
-        <div className="w-full h-auto">
-          <div className="p-4 object-cover " style={{ height: "70vh" }}>
-            <img
-              src="cropped.jpg"
-              alt=""
-              className="h-full w-full object-cover  rounded-tr-4xl  rounded-bl-4xl"
-            />
-          </div>
-          <div className="content h-auto w-full grid place-items-center p-4">
-            <h1 className="text-5xl capitalize font-extrabold text-center">
-              The Ultimate Collection – Perfect for Every Day.
-            </h1>
-            <button className="flex pt-2 pb-2 pl-8 pr-8 mt-6 rounded-xs font-bold text-white uppercase transition-all ease-in bg-black ">
-              Explore Now
-            </button>
-          </div>
+      <div className="w-auto h-auto mt-20 mb-20">
+        <div className="text-center mb-10">
+          <h1
+            className="text-4xl font-extrabold uppercase"
+            style={{ fontFamily: "Unbounded,poppins" }}
+          >
+            Elevate Your Experience <br />
+            <h3 className="text-2xl">with Our Top Choices </h3>
+          </h1>
         </div>
-        <div className="p-4 w-auto " style={{ height: "100vh" }}>
-          <img
-            className=" h-full w-auto object-cover"
-            src="pexels-alessandra-shalbe-859114866-20446138.jpg"
-            alt=""
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-20 lg:px-40">
+          {featuredProducts.map((curr, index) => {
+            return <Product key={index} {...curr} />;
+          })}
         </div>
       </div>
     </Fragment>

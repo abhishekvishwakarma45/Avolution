@@ -2,20 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
  @import "tailwindcss";
 *{
-          
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 body{
 font-family: "Manrope", serif;
+
 }
 
 
-.hero-section-content h1{
-font-family: "Unbounded", serif;
-}
 
-
-.content h1{
-font-family: "Manrope", serif;
-}

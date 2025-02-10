@@ -4,15 +4,18 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const HeroSection = () => {
   return (
     <Fragment>
-      <div className="hero-section-container  h-auto w-screen flex flex-col lg:grid grid-cols-2 p-4 ">
-        <div className="flex justify-center items-center text-center lg:text-left">
-          <div className="hero-section-content p-6 flex flex-col justify-center items-center lg:items-start">
-            <h1 className="uppercase font-extrabold text-4xl sm:text-5xl lg:text-6xl mb-4">
+      <div className="flex flex-col w-screen h-auto grid-cols-2 p-4 hero-section-container lg:grid ">
+        <div className="flex items-center justify-center text-center lg:text-left">
+          <div className="flex flex-col items-center justify-center p-6 hero-section-content lg:items-start">
+            <h1
+              className="mb-4 text-4xl font-extrabold uppercase sm:text-5xl lg:text-6xl"
+              style={{ fontFamily: "Unbounded,serif" }}
+            >
               Discover Your <br />
               Authentic Style <br />
               Here
             </h1>
-            <p className="text-lg lg:text-xl mb-6">
+            <p className="mb-6 text-lg lg:text-xl">
               Unlock the essence of your individuality with our exclusive style
               guide. Meticulously tailored to highlight your best features, our
               curated collection guarantees you stand out with unwavering
@@ -20,7 +23,7 @@ const HeroSection = () => {
               your true style today and let your authentic self shine like never
               before.
             </p>
-            <button className="mt-2 pr-8 pl-8 pt-4 pb-4 rounded-ee-3xl rounded-tl-3xl bg-black text-white flex justify-center items-center">
+            <button className="flex items-center justify-center pt-4 pb-4 pl-8 pr-8 mt-2 text-white bg-black rounded-ee-3xl rounded-tl-3xl">
               Shop now
               <span className="ml-2">
                 <FaArrowRightLong />
@@ -29,11 +32,15 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className=" p-4 hero-image-container h-[90vh] w-full object-cover">
+        <div
+          className="object-cover w-full p-4  hero-image-container"
+          style={{ height: "90vh" }}
+        >
           <img
-            className="h-full w-full object-cover rounded-tl-3xl rounded-br-4xl"
+            className="object-cover w-full h-full rounded-tl-3xl rounded-br-4xl"
             src="ellee-morr-Yx_Fw-XYroU-unsplash.jpg"
             alt="Fashion"
+            loading="lazy"
           />
         </div>
       </div>
