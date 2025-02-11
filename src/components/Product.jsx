@@ -38,6 +38,7 @@ const Product = (curr) => {
             20%
           </span> */}
         </div>
+
         <div className="w-full h-auto p-3 text-left product-desc capitalise">
           <p className="mt-1 ">{brand}</p>
           <p className="mt-1 text-2xl font-bold ">{name}</p>

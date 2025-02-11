@@ -12,7 +12,6 @@ import ProductPage from "./components/ProductPage";
 const Home = () => {
   return (
     <Fragment>
-      <Header />
       <HeroSection />
       <FeaturedSection />
       <UltimateCollectionSection />
