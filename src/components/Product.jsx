@@ -32,7 +32,7 @@ const Product = (curr) => {
           />
 
           {/* <span
-            className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2"
+            className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2 "
             style={{ top: "-95%" }}
           >
             20%
@@ -58,7 +58,7 @@ const Product = (curr) => {
               return (
                 <button
                   key={index}
-                  className="p-3 mr-2  text-white uppercase text-xs bg-black rounded-xs"
+                  className="p-3 my-2 mr-2 text-xs text-white uppercase bg-black rounded-xs"
                 >
                   {curr}
                 </button>
@@ -72,18 +72,3 @@ const Product = (curr) => {
 };
 
 export default Product;
-
-{
-  /* <button className="p-3 mr-2  text-white uppercase text-xs bg-black rounded-xs">
-              s
-            </button>
-            <button className="p-3 mr-2   text-white uppercase text-xs bg-black rounded-xs">
-              l
-            </button>
-            <button className="p-3 mr-2   text-white uppercase text-xs bg-black rounded-xs">
-              xl
-            </button>
-            <button className="p-3 mr-2  text-white uppercase text-xs bg-black rounded-xs">
-              xxl
-            </button> */
-}

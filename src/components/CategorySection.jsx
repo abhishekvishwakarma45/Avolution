@@ -41,7 +41,7 @@ const CategorySection = () => {
         <div
           className="flex items-end justify-center p-4 m-5"
           style={{
-            height: "70vh",
+            height: "55vh",
             backgroundImage:
               "url(portrait-young-japanese-woman-with-jacket.jpg)",
             backgroundSize: "cover",
@@ -58,7 +58,7 @@ const CategorySection = () => {
         <div
           className="flex items-end justify-center p-4 m-5"
           style={{
-            height: "70vh",
+            height: "55vh",
             backgroundImage: "url(mohamad-khosravi-0t_7_-ZTN0g-unsplash.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
