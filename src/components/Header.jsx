@@ -9,21 +9,20 @@ const Header = () => {
       <div className="grid w-screen h-15 grid-cols-2 pt-1 pb-1 pl-2 pr-2 header-container lg:grid-cols-3">
         <div className="items-center justify-start flex-auto hidden w-auto h-full lg:flex">
           <ul className="flex items-center justify-center w-auto h-auto pl-4 font-bold text-center uppercase flexwrap">
-            <NavLink>
+            <a href="/">
               <li className="m-2">Home</li>
-            </NavLink>
-            {/* <NavLink>/ */}
-            <a href="#category">
+            </a>
+
+            <a href="/">
               <li className="m-2">Categories</li>
             </a>
-            {/* </NavLink> */}
 
-            <NavLink>
+            <a href="">
               <li className="m-2">About</li>
-            </NavLink>
-            <NavLink>
+            </a>
+            <a href="">
               <li className="m-2">Contact</li>
-            </NavLink>
+            </a>
           </ul>
         </div>
         <div className="grid w-auto h-20 text-4xl place-items-left lg:place-items-center logo-container">

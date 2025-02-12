@@ -39,6 +39,7 @@ const HeroSection = () => {
           <img
             className="object-cover w-full h-full rounded-tl-3xl rounded-br-4xl"
             src="ellee-morr-Yx_Fw-XYroU-unsplash.jpg"
+            // src="reza-delkhosh-Ms5iR0egFOM-unsplash.jpg"
             alt="Fashion"
             loading="lazy"
           />
