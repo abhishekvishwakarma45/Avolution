@@ -38,7 +38,7 @@ const ExclusiveSection = () => {
         <div className="flex items-end justify-center p-4">
           <img
             src="/giorgio-armani-main.jpeg"
-            className="object-cover w-auto h-auto "
+            className="object-cover w-full h-full "
             alt=""
           />
         </div>
