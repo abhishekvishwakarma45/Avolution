@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useParams } from "react-router";
 import useProductContext from "./context/ProductContext";
+import FormatPrice from "./FormatPrice";
 
 const ProductPage = () => {
   const { getProductById, state } = useProductContext();
@@ -35,10 +36,10 @@ const ProductPage = () => {
 
   const [selectedColor, setSelectedColor] = useState(false);
   const [selectedSize, setSelectedSize] = useState(false);
-  const [active, setActive] = useState(false);
+
   const [quantity, setQuantity] = useState(0);
   gsap.registerPlugin(ScrollTrigger);
-  let current;
+
   const ImageRef = useRef(null);
 
   useEffect(() => {
@@ -66,16 +67,17 @@ const ProductPage = () => {
 
   return (
     <Fragment>
-      <div className="grid w-screen h-auto grid-cols-1 px-4 md:px-8 lg:grid-cols-2 lg:px-40 py-5">
+      <div className="grid w-screen h-auto grid-cols-1 px-4 py-5 md:px-8 lg:grid-cols-2 lg:px-40">
         <div ref={ImageRef} className="w-auto h-auto p-5">
           <img src={image} alt="" className="object-cover w-full h-auto" />
         </div>
 
-        <div className=" description-container capitalize sm: py-2 px-4 lg:py-5">
+        <div className="px-4 py-2 capitalize description-container sm: lg:py-5">
           <p className="my-2 text-xs uppercase">{category}</p>
           <h1 className="text-2xl font-bold my-1.5">{name}</h1>
           <p className="my-1 font-extrabold">
-            {price} <span className="my-1 text-xs ">& shipping charges</span>
+            <FormatPrice price={price} />
+            <span className="my-1 text-xs ">& shipping charges</span>
           </p>
 
           <p className="my-1 ">{description}</p>
@@ -85,7 +87,7 @@ const ProductPage = () => {
                   return (
                     <button
                       key={index}
-                      className="h-8 w-8 my-2 mr-2 text-3xl  text-amber-300  uppercase bg-black rounded-xs"
+                      className="w-8 h-8 my-2 mr-2 text-3xl text-black uppercase bg-black border border-gray-400 rounded-xs"
                       style={{ backgroundColor: current }}
                       onClick={() => setSelectedColor(current)}
                     >
@@ -102,9 +104,7 @@ const ProductPage = () => {
                   return (
                     <button
                       key={index}
-                      className={`h-8 w-8 my-2 mr-2  text-white uppercase bg-black rounded-xs ${
-                        active ? "bg-amber-300" : "bg-black"
-                      }`}
+                      className={`h-8 w-8 my-2 mr-2  text-white uppercase bg-black rounded-xs`}
                       onClick={() => {
                         setActive(true);
                         setSelectedSize(current);

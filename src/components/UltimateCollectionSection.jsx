@@ -2,7 +2,7 @@ import React from "react";
 
 const UltimateCollectionSection = () => {
   return (
-    <div className="w-full h-auto sm:px-20 lg:px-40">
+    <div className="w-full h-auto px-4 sm:px-10 md:px-20 lg:px-40">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 place-items-center">
         <div className="w-full h-auto">
           <div className="relative w-full h-[50vh]">
@@ -25,7 +25,7 @@ const UltimateCollectionSection = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[70vh]">
+        <div className="w-full h-full">
           <img
             src="mohamad-khosravi-N88xBPX2-m8-unsplash.jpg"
             alt="Collection Display"

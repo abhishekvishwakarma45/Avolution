@@ -1,21 +1,10 @@
 import React from "react";
 import { Fragment } from "react";
 import { NavLink } from "react-router";
+import FormatPrice from "./FormatPrice";
 
 const Product = (curr) => {
-  const {
-    id,
-    name,
-    brand,
-    description,
-    isFeature,
-    price,
-    stock,
-    color,
-    image,
-    category,
-    size,
-  } = curr;
+  const { id, name, brand, price, color, image, size } = curr;
 
   return (
     <Fragment>
@@ -43,13 +32,15 @@ const Product = (curr) => {
           <div className="w-full h-auto p-3 text-left product-desc capitalise">
             <p className="mt-1 uppercase">{brand}</p>
             <p className="mt-1 text-2xl font-bold ">{name}</p>
-            <p className="mt-1 mb-2 font-bold"> {price}</p>
+            <p className="mt-1 mb-2 font-bold">
+              <FormatPrice price={price} />
+            </p>
             <div className="w-auto h-auto mt-2 color-container">
               {color.map((curr, index) => {
                 return (
                   <button
                     key={index}
-                    className="p-3 mr-3 rounded-xs"
+                    className="p-3 mr-3 border border-gray-400 rounded-xs"
                     style={{ backgroundColor: curr }}
                   ></button>
                 );

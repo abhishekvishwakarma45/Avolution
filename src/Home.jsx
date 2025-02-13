@@ -5,7 +5,7 @@ import FeaturedSection from "./components/FeaturedSection";
 import UltimateCollectionSection from "./components/UltimateCollectionSection";
 import { Footer } from "./components/Footer";
 
-// import CategorySection from "./components/CategorySection";
+import ExclusiveSection from "./components/ExclusiveSection";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <HeroSection />
       <FeaturedSection />
       <UltimateCollectionSection />
-      {/* <CategorySection /> */}
+      <ExclusiveSection />
       <Footer />
     </Fragment>
   );
