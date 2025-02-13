@@ -6,10 +6,35 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useParams } from "react-router";
+import useProductContext from "./context/ProductContext";
 
 const ProductPage = () => {
-  const [color, setColor] = useState(false);
-  const [size, setSize] = useState(false);
+  const { getProductById, state } = useProductContext();
+  const { singleProduct } = state;
+
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      getProductById(id);
+    }
+  }, [id]);
+
+  console.log(singleProduct);
+  const {
+    name,
+    brand,
+    price,
+    description,
+    stock,
+    category,
+    image,
+    color,
+    size,
+  } = singleProduct;
+
+  const [selectedColor, setSelectedColor] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(false);
   const [active, setActive] = useState(false);
   const [quantity, setQuantity] = useState(0);
   gsap.registerPlugin(ScrollTrigger);
@@ -26,6 +51,7 @@ const ProductPage = () => {
           pin: true,
           pinSpacing: false,
           scrub: 2,
+
           start: "top top",
           end: "+=100%",
         },
@@ -42,46 +68,61 @@ const ProductPage = () => {
     <Fragment>
       <div className="grid w-screen h-auto grid-cols-1 px-4 md:px-8 lg:grid-cols-2 lg:px-40 py-5">
         <div ref={ImageRef} className="w-auto h-auto p-5">
-          <img
-            src="mohamad-khosravi-yMpZJvTEspk-unsplash.jpg"
-            alt=""
-            className="object-cover w-full max-h-full"
-          />
+          <img src={image} alt="" className="object-cover w-full h-auto" />
         </div>
 
-        <div className="capitalize sm: py-2 px-4 lg:py-5">
-          <p className="my-2 text-xs uppercase">category</p>
-          <h1 className="text-2xl font-bold my-1.5">name</h1>
-          <p className="my-1 font-extrabold">price</p>
-          <span className="my-1 ">& shipping charges</span>
-          <p className="my-1 ">desc</p>
+        <div className=" description-container capitalize sm: py-2 px-4 lg:py-5">
+          <p className="my-2 text-xs uppercase">{category}</p>
+          <h1 className="text-2xl font-bold my-1.5">{name}</h1>
+          <p className="my-1 font-extrabold">
+            {price} <span className="my-1 text-xs ">& shipping charges</span>
+          </p>
+
+          <p className="my-1 ">{description}</p>
           <div className="color-container">
-            <button
-              className="p-4 my-2 mr-2  text-white uppercase bg-black rounded-xs"
-              onClick={() => setColor()}
-            >
-              {color === current ? <IoMdCheckmark /> : ""}
-            </button>
+            {Array.isArray(color)
+              ? color.map((current, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className="h-8 w-8 my-2 mr-2 text-3xl  text-amber-300  uppercase bg-black rounded-xs"
+                      style={{ backgroundColor: current }}
+                      onClick={() => setSelectedColor(current)}
+                    >
+                      {selectedColor === current ? <IoMdCheckmark /> : ""}
+                    </button>
+                  );
+                })
+              : []}
           </div>
 
           <div className="size-container">
-            <button
-              className={`p-3 my-2 mr-2 text-xs text-white uppercase rounded-sm border-red-400 ${
-                active ? "bg-amber-300" : "bg-black"
-              }`}
-              onClick={() => {
-                setSize(current);
-                setActive(true);
-              }}
-            >
-              Click Me
-            </button>
+            {Array.isArray(size)
+              ? size.map((current, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={`h-8 w-8 my-2 mr-2  text-white uppercase bg-black rounded-xs ${
+                        active ? "bg-amber-300" : "bg-black"
+                      }`}
+                      onClick={() => {
+                        setActive(true);
+                        setSelectedSize(current);
+                      }}
+                    >
+                      {current}
+                    </button>
+                  );
+                })
+              : []}
           </div>
           <hr className="my-4" />
           <div className="flex items-center justify-items-start">
             <button
               className="p-3 mx-2 my-2 text-white uppercase bg-black rounded-xs"
-              onClick={() => setQuantity(quantity + 1)}
+              onClick={() =>
+                setQuantity(quantity < stock ? quantity + 1 : stock)
+              }
             >
               <LuPlus />
             </button>

@@ -1,13 +1,19 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 import React from "react";
 import axios from "axios";
 import { ProductReducer } from "../reducer/ProductReducer";
 
 let ProductContext = createContext();
-
 const initialState = {
   allProducts: [],
   featuredProducts: [],
+  singleProduct: {},
 };
 
 export const ProductContextProvider = ({ children }) => {
@@ -35,8 +41,19 @@ export const ProductContextProvider = ({ children }) => {
     }
   }, [state.allProducts]);
 
+  const getProductById = async (id) => {
+    let res = await axios.get("/Product.json");
+    let allProducts = res.data;
+    let SingleProduct = allProducts.find((curr) => {
+      return curr.id === id;
+    });
+    dispatch({ type: "SET_SINGLE_PRODUCT", payload: SingleProduct });
+  };
+
   return (
-    <ProductContext.Provider value={state}>{children}</ProductContext.Provider>
+    <ProductContext.Provider value={{ state, getProductById }}>
+      {children}
+    </ProductContext.Provider>
   );
 };
 

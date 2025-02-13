@@ -1,5 +1,6 @@
 export const ProductReducer = (state, action) => {
-  let featuredProducts;
+  let temp;
+  const { allProducts } = state;
   switch (action.type) {
     case "SET_ALL_PRODUCTS":
       return {
@@ -7,13 +8,20 @@ export const ProductReducer = (state, action) => {
         allProducts: action.payload,
       };
     case "SET_FEATURED_PRODUCT":
-      featuredProducts = action.payload.filter(
-        (curr) => curr.isFeature === true
-      );
+      temp = Array.isArray(action.payload)
+        ? allProducts.filter((curr) => curr.isFeature === true)
+        : [];
       return {
         ...state,
-        featuredProducts: featuredProducts,
+        featuredProducts: temp,
       };
+
+    case "SET_SINGLE_PRODUCT":
+      return {
+        ...state,
+        singleProduct: action.payload,
+      };
+
     default:
       return state;
   }

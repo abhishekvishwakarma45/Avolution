@@ -3,7 +3,8 @@ import { Fragment } from "react";
 import Product from "./Product";
 import useProductContext from "./context/ProductContext";
 const FeaturedSection = () => {
-  const { featuredProducts } = useProductContext();
+  const { state } = useProductContext();
+  const { featuredProducts } = state;
 
   return (
     <Fragment>

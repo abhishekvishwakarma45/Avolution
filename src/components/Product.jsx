@@ -16,10 +16,10 @@ const Product = (curr) => {
     category,
     size,
   } = curr;
-  console.log(size);
+
   return (
     <Fragment>
-      <a href="/product">
+      <a href={`/product/${id}`}>
         <div
           className="w-full h-auto p-2 m-2"
           style={{ boxShadow: "0 2px 7px rgba(0, 0, 0, 0.3)" }}
