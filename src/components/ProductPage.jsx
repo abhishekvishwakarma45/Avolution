@@ -42,28 +42,28 @@ const ProductPage = () => {
   console.log(selectedSize);
   const ImageRef = useRef(null);
 
-  // useEffect(() => {
-  //   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-  //   if (isDesktop) {
-  //     gsap.to(ImageRef.current, {
-  //       scrollTrigger: {
-  //         trigger: ImageRef.current,
-  //         pin: true,
-  //         pinSpacing: false,
-  //         scrub: 2,
+    if (isDesktop) {
+      gsap.to(ImageRef.current, {
+        scrollTrigger: {
+          trigger: ImageRef.current,
+          pin: true,
+          pinSpacing: false,
+          scrub: 2,
 
-  //         start: "top top",
-  //         end: "+=100%",
-  //       },
-  //     });
-  //   }
-  //   return () => {
-  //     if (ScrollTrigger.getAll()) {
-  //       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //     }
-  //   };
-  // }, []);
+          start: "top top",
+          end: "+=100%",
+        },
+      });
+    }
+    return () => {
+      if (ScrollTrigger.getAll()) {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      }
+    };
+  }, []);
 
   return (
     <Fragment>

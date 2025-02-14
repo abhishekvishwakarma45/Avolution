@@ -37,9 +37,11 @@ const Header = () => {
 
         <div className="flex items-center justify-end w-auto h-full pr-4 space-x-4 overflow-visible lg:flex header-right-container">
           <div className="inline-block m-3">
-            <button className="grid text-3xl place-items-center">
-              <IoIosSearch />
-            </button>
+            <a href="/allproducts">
+              <button className="grid text-3xl place-items-center">
+                <IoIosSearch />
+              </button>
+            </a>
           </div>
           <div className="m-3">
             <button className="flex items-center justify-center text-2xl">

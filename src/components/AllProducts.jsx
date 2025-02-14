@@ -1,91 +1,113 @@
 import React, { Fragment } from "react";
 import { MdFilterList } from "react-icons/md";
 import { useState } from "react";
+import { IoIosSearch } from "react-icons/io";
+import { FaAngleDown } from "react-icons/fa";
+import { FaSortAlphaUp } from "react-icons/fa";
+import { FaSortAlphaDownAlt } from "react-icons/fa";
+import Product from "./Product";
+
+import { TbSort09 } from "react-icons/tb";
+import { TbSort90 } from "react-icons/tb";
 
 const AllProducts = () => {
+  const [brand, setBrand] = useState();
+  console.log(brand);
   return (
     <Fragment>
       <div
-        className="bg-[#F3F4F6] h-auto w-screen grid gap-4 px-40"
+        className=" h-auto w-screen my-6 grid gap-4 px-25"
         style={{ gridTemplateColumns: "30% 60%" }}
       >
-        <div className="filter-section h-auto w-full p-2">
+        <div className="filter-section shadow-xl h-auto w-full p-2">
           <div className="p-2 my-2 capitalize">
-            <p className="flex justify-between text-xl items-center">
+            <p className="flex justify-between text-xl text-gray-700 font-bold items-center">
               filter
-              <span>
+              <span className="text-2xl">
                 <MdFilterList />
               </span>
             </p>
           </div>
           <hr />
 
-          <div className="mx-auto flex w-full justify-center bg-gray-200">
-            <div className="group relative w-full cursor-pointer py-2">
+          <div className="mx-auto flex w-full justify-center  text-gray-700 font-bold bg-gray-200 ">
+            <div className="group relative w-full cursor-pointer hover:bg-gray-100 ">
               <div className="flex items-center justify-between space-x-5 bg-white px-4">
-                <a className="menu-hover my-2 py-2 text-base font-medium text-black">
-                  Brand
-                </a>
+                <a className="menu-hover my-2 py-1 text-base ">Brand</a>
                 <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
+                  <FaAngleDown />
                 </span>
               </div>
 
-              <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Sunday
+              <div
+                onClick={() => setBrand("sunday")}
+                className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible"
+              >
+                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                  Puma
+                </a>
+                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                  Gucci
                 </a>
               </div>
             </div>
           </div>
-
-          <div className="mx-auto flex w-full justify-center bg-gray-200">
-            <div className="group relative w-full cursor-pointer py-2">
+          <hr />
+          <div className="mx-auto flex text-gray-700 font-bold w-full justify-center bg-gray-200">
+            <div className="group relative w-full cursor-pointer">
               <div className="flex items-center justify-between space-x-5 bg-white px-4">
-                <a className="menu-hover my-2 py-2 text-base font-medium text-black">
-                  Category
-                </a>
+                <a className="menu-hover my-2 py-2 text-base ">Category</a>
                 <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
+                  <FaAngleDown />
                 </span>
               </div>
 
               <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Sunday
+                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                  Men
                 </a>
               </div>
             </div>
           </div>
+          <hr />
+          <div className="size-selection">
+            <div className="w-auto  font-semibold">
+              <div className="flex items-center text-gray-700 font-bold space-x-2 rounded p-4 hover:bg-gray-100 accent-teal-600">
+                <input
+                  type="checkbox"
+                  id="htmlCheckbox"
+                  name="languageCheckbox"
+                  className="h-6 w-6 rounded border-gray-300 text-teal-600 shadow-sm  focus:ring focus:ring-teal-200 focus:ring-opacity-50"
+                />
+                <p className="mx-2 text-gray-700 font-bold"> Size</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="mx-auto flex w-full justify-center bg-gray-200">
+            <div className="group relative w-full  cursor-pointer">
+              <div className="flex items-center justify-between space-x-5 bg-white px-4 ">
+                <a className="menu-hover my-2 text-gray-700 font-bold py-2 text-base ">
+                  Color
+                </a>
+                <span>
+                  <FaAngleDown />
+                </span>
+              </div>
 
+              <div
+                onClick={() => setBrand("sunday")}
+                className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-700 font-bold shadow-xl group-hover:visible"
+              >
+                <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                  Red
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr />
           <div className="Price-range">
-            <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+            <div className="bg-white  p-2 w-full max-w-md">
               <div className="mb-4">
                 <label
                   name="price-range"
@@ -108,44 +130,94 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-          <div className="size-selection">
-            <div className="w-40 text-xl font-semibold">
-              <div className="flex items-center  space-x-2 rounded p-2 hover:bg-gray-100 accent-teal-600">
-                <input
-                  type="checkbox"
-                  id="htmlCheckbox"
-                  name="languageCheckbox"
-                  className="h-4 w-4 rounded border-gray-300 text-teal-600 shadow-sm  focus:ring focus:ring-teal-200 focus:ring-opacity-50"
-                />
-                <p className="mx-2"> Size</p>
+        </div>
+
+        <div className="AllProducts h-auto w-auto">
+          <div className="searchbar flex justify-between shadow-lg w-full h-auto rounded-xs">
+            <div className="flex justify-center rounded-xs w-full items-center px-4 py-4 ">
+              <input
+                type="text"
+                className="border w-full h-auto px-3 py-2 text-gray-700 font-bold border-gray-500 border-r-0 "
+                placeholder="Search anything..."
+              />
+              <button className="px-8 py-2 border border-grey-500 text-2xl">
+                <IoIosSearch />
+              </button>
+            </div>
+            <div>
+              <div className="mx-auto flex w-full justify-center ">
+                <div className="group relative w-full cursor-pointer  py-2">
+                  <div className="flex items-center justify-between space-x-5 bg-white px-4">
+                    <a className="menu-hover my-2 mx-6 py-2 text-base font-medium text-black text-nowrap">
+                      Sort By
+                    </a>
+                    <span>
+                      <FaAngleDown />
+                    </span>
+                  </div>
+
+                  <div
+                    onClick={() => setBrand("sunday")}
+                    className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible"
+                  >
+                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                      <p className="flex justify-between items-center">
+                        A-Z
+                        <span>
+                          <FaSortAlphaUp />
+                        </span>
+                      </p>
+                    </a>
+                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                      <p className="flex justify-between items-center">
+                        Z-A
+                        <span>
+                          <FaSortAlphaDownAlt />
+                        </span>
+                      </p>
+                    </a>
+                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                      <p className="flex justify-between items-center">
+                        1-9
+                        <span>
+                          <TbSort09 />
+                        </span>
+                      </p>
+                    </a>
+                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
+                      <p className="flex justify-between items-center">
+                        9-1
+                        <span>
+                          <TbSort90 />
+                        </span>
+                      </p>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="AllProducts">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae minima
-          quaerat perspiciatis, officia omnis eaque, sed exercitationem
-          deserunt, alias inventore voluptates labore? Aperiam modi veritatis
-          consequatur minima architecto distinctio quae? Modi rerum excepturi
-          consequatur sunt doloremque esse eligendi neque amet, impedit,
-          consequuntur possimus ducimus repellat praesentium in aut tenetur
-          porro itaque eum deserunt vitae iste optio quibusdam harum eaque.
-          Facere debitis sunt neque eius rerum, eos quidem tempore, placeat vel
-          fugit excepturi quaerat officiis at omnis voluptatem optio animi ab
-          eum ex earum fuga amet modi distinctio. Cumque aspernatur molestiae
-          possimus reiciendis totam dolorem libero, cum distinctio eveniet
-          architecto a soluta provident aliquid minima rem eligendi impedit,
-          excepturi incidunt tempore beatae officiis voluptatibus? Quidem, alias
-          aspernatur sed tempora temporibus ad nesciunt esse iusto molestiae
-          autem delectus sunt atque consequuntur rerum voluptas? Repellat
-          laudantium rerum maiores cumque, ipsum repudiandae quia
-          consecteturriatur repudiandae? Repudiandae dolorum nostrum nemo
-          consectetur obcaecati maxime, accusantium porro quas voluptatem
-          necessitatibus veritatis sed sunt maiores dolorem possimus non ullam
-          id? Sed nam commodi quis tempora recusandae exercitationem at? Esse
-          vero corporis quo recusandae a culpa neque asperiores nam voluptatum.
-          Repudiandae, possimus?
+          <div className="allProduct-conatiner p-4 grid grid-cols-3 gap-2">
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
+              esse voluptatem sit, unde dignissimos nisi inventore quae autem
+              nostrum, hic officia! Error doloremque culpa dignissimos soluta
+              quos architecto natus vitae?
+            </div>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
+              esse voluptatem sit, unde dignissimos nisi inventore quae autem
+              nostrum, hic officia! Error doloremque culpa dignissimos soluta
+              quos architecto natus vitae?
+            </div>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
+              esse voluptatem sit, unde dignissimos nisi inventore quae autem
+              nostrum, hic officia! Error doloremque culpa dignissimos soluta
+              quos architecto natus vitae?
+            </div>
+          </div>
         </div>
       </div>
     </Fragment>
@@ -153,3 +225,5 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
+
+// block text-gray-700 font-bold mb-2

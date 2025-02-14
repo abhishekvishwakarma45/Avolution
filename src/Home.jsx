@@ -16,7 +16,6 @@ const Home = () => {
       <UltimateCollectionSection />
       <ExclusiveSection />
       <Footer />
-      <AllProducts />
     </Fragment>
   );
 };
