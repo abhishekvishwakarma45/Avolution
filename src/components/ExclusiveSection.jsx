@@ -58,21 +58,30 @@ const ExclusiveSection = () => {
           </div>
           <hr />
           <div className="grid grid-cols-3 gap-4 p-2 my-4 place-items-center">
-            <div className="w-full h-auto border border-gray-500 rounded-xs ">
+            <div
+              className="w-full h-auto rounded-xs "
+              style={{ boxShadow: " rgba(0, 0, 0, 0.3) 0px 2px 7px" }}
+            >
               <img
                 src="/giorgio-armani-watch.jpeg"
                 alt=""
                 className="object-contain w-full h-full"
               />
             </div>
-            <div className="w-full h-auto border border-gray-500 rounded-xs">
+            <div
+              className="w-full h-auto rounded-xs"
+              style={{ boxShadow: " rgba(0, 0, 0, 0.3) 0px 2px 7px" }}
+            >
               <img
                 src="/giorgio-armani-perfume.jpeg"
                 alt=""
                 className="object-contain w-full h-full"
               />
             </div>
-            <div className="w-full h-auto border border-gray-500 rounded-xs">
+            <div
+              className="w-full h-auto rounded-xs"
+              style={{ boxShadow: " rgba(0, 0, 0, 0.3) 0px 2px 7px" }}
+            >
               <img
                 src="/giorgio-armani-bag.jpeg"
                 alt=""

@@ -21,7 +21,6 @@ const ProductPage = () => {
     }
   }, [id]);
 
-  console.log(singleProduct);
   const {
     name,
     brand,
@@ -40,30 +39,31 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(0);
   gsap.registerPlugin(ScrollTrigger);
 
+  console.log(selectedSize);
   const ImageRef = useRef(null);
 
-  useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  // useEffect(() => {
+  //   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-    if (isDesktop) {
-      gsap.to(ImageRef.current, {
-        scrollTrigger: {
-          trigger: ImageRef.current,
-          pin: true,
-          pinSpacing: false,
-          scrub: 2,
+  //   if (isDesktop) {
+  //     gsap.to(ImageRef.current, {
+  //       scrollTrigger: {
+  //         trigger: ImageRef.current,
+  //         pin: true,
+  //         pinSpacing: false,
+  //         scrub: 2,
 
-          start: "top top",
-          end: "+=100%",
-        },
-      });
-    }
-    return () => {
-      if (ScrollTrigger.getAll()) {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      }
-    };
-  }, []);
+  //         start: "top top",
+  //         end: "+=100%",
+  //       },
+  //     });
+  //   }
+  //   return () => {
+  //     if (ScrollTrigger.getAll()) {
+  //       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //     }
+  //   };
+  // }, []);
 
   return (
     <Fragment>
@@ -106,7 +106,6 @@ const ProductPage = () => {
                       key={index}
                       className={`h-8 w-8 my-2 mr-2  text-white uppercase bg-black rounded-xs`}
                       onClick={() => {
-                        setActive(true);
                         setSelectedSize(current);
                       }}
                     >
