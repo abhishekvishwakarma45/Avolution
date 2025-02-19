@@ -3,8 +3,8 @@ import { Fragment } from "react";
 import { NavLink } from "react-router";
 import FormatPrice from "./FormatPrice";
 
-const Product = (curr) => {
-  const { id, name, brand, price, color, image, size } = curr;
+const Product = ({ current }) => {
+  const { id, name, brand, price, color, image, size } = current;
 
   return (
     <Fragment>
@@ -36,27 +36,31 @@ const Product = (curr) => {
               <FormatPrice price={price} />
             </p>
             <div className="w-auto h-auto mt-2 color-container">
-              {color.map((curr, index) => {
-                return (
-                  <button
-                    key={index}
-                    className="p-3 mr-3 border border-gray-400 rounded-xs"
-                    style={{ backgroundColor: curr }}
-                  ></button>
-                );
-              })}
+              {Array.isArray(color)
+                ? color.map((curr, index) => {
+                    return (
+                      <button
+                        key={index}
+                        className="p-3 mr-3 border border-gray-400 rounded-xs"
+                        style={{ backgroundColor: curr }}
+                      ></button>
+                    );
+                  })
+                : []}
             </div>
             <div className="mt-2">
-              {size.map((curr, index) => {
-                return (
-                  <button
-                    key={index}
-                    className="p-3 my-2 mr-2 text-xs text-white uppercase bg-black rounded-xs"
-                  >
-                    {curr}
-                  </button>
-                );
-              })}
+              {Array.isArray(size)
+                ? size.map((curr, index) => {
+                    return (
+                      <button
+                        key={index}
+                        className="p-3 my-2 mr-2 text-xs text-white uppercase bg-black rounded-xs"
+                      >
+                        {curr}
+                      </button>
+                    );
+                  })
+                : []}
             </div>
           </div>
         </div>

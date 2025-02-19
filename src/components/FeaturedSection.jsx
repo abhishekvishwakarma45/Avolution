@@ -20,7 +20,7 @@ const FeaturedSection = () => {
         </div>
         <div className="grid grid-cols-1 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-20 lg:px-40">
           {featuredProducts.map((curr, index) => {
-            return <Product key={index} {...curr} />;
+            return <Product key={index} current={curr} />;
           })}
         </div>
       </div>

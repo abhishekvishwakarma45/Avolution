@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { MdFilterList } from "react-icons/md";
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
@@ -6,20 +6,54 @@ import { FaAngleDown } from "react-icons/fa";
 import { FaSortAlphaUp } from "react-icons/fa";
 import { FaSortAlphaDownAlt } from "react-icons/fa";
 import Product from "./Product";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TbSort09 } from "react-icons/tb";
 import { TbSort90 } from "react-icons/tb";
+import useProductContext from "./context/ProductContext";
+import gsap from "gsap";
+import { useEffect } from "react";
 
 const AllProducts = () => {
+  gsap.registerPlugin(ScrollTrigger);
   const [brand, setBrand] = useState();
-  console.log(brand);
+  const { state } = useProductContext();
+  const { allProducts } = state;
+
+  console.log(allProducts);
+  const filterPin = useRef();
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+    if (isDesktop) {
+      gsap.to(filterPin.current, {
+        scrollTrigger: {
+          trigger: filterPin.current,
+          pin: true,
+          pinSpacing: false,
+          scrub: 2,
+          start: "top top",
+          end: "bottom end ",
+        },
+      });
+    }
+    // return () => {
+    //   if (ScrollTrigger.getAll()) {
+    //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    //   }
+    // };
+  }, []);
+
   return (
     <Fragment>
       <div
         className=" h-auto w-screen my-6 grid gap-4 px-25"
-        style={{ gridTemplateColumns: "30% 60%" }}
+        style={{ gridTemplateColumns: "25% 65%" }}
       >
-        <div className="filter-section shadow-xl h-auto w-full p-2">
+        <div
+          className="filter-section shadow-xl  h-screen w-full p-2 rounded-lg border border-gray-400"
+          ref={filterPin}
+        >
           <div className="p-2 my-2 capitalize">
             <p className="flex justify-between text-xl text-gray-700 font-bold items-center">
               filter
@@ -52,7 +86,7 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-          <hr />
+          <hr className="text-gray-400" />
           <div className="mx-auto flex text-gray-700 font-bold w-full justify-center bg-gray-200">
             <div className="group relative w-full cursor-pointer">
               <div className="flex items-center justify-between space-x-5 bg-white px-4">
@@ -69,7 +103,7 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-          <hr />
+          <hr className="text-gray-400" />
           <div className="size-selection">
             <div className="w-auto  font-semibold">
               <div className="flex items-center text-gray-700 font-bold space-x-2 rounded p-4 hover:bg-gray-100 accent-teal-600">
@@ -83,7 +117,7 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-          <hr />
+          <hr className="text-gray-400" />
           <div className="mx-auto flex w-full justify-center bg-gray-200">
             <div className="group relative w-full  cursor-pointer">
               <div className="flex items-center justify-between space-x-5 bg-white px-4 ">
@@ -105,12 +139,12 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-          <hr />
+          <hr className="text-gray-400" />
           <div className="Price-range">
             <div className="bg-white  p-2 w-full max-w-md">
               <div className="mb-4">
                 <label
-                  name="price-range"
+                  htmlFor="price-range"
                   className="block text-gray-700 font-bold mb-2"
                 >
                   Price Range
@@ -133,21 +167,21 @@ const AllProducts = () => {
         </div>
 
         <div className="AllProducts h-auto w-auto">
-          <div className="searchbar flex justify-between shadow-lg w-full h-auto rounded-xs">
+          <div className="searchbar flex justify-between shadow-lg w-full h-auto">
             <div className="flex justify-center rounded-xs w-full items-center px-4 py-4 ">
               <input
                 type="text"
                 className="border w-full h-auto px-3 py-2 text-gray-700 font-bold border-gray-500 border-r-0 "
                 placeholder="Search anything..."
               />
-              <button className="px-8 py-2 border border-grey-500 text-2xl">
+              <button className="px-8 py-2 border border-l-0 border-gray-500  text-2xl">
                 <IoIosSearch />
               </button>
             </div>
             <div>
               <div className="mx-auto flex w-full justify-center ">
-                <div className="group relative w-full cursor-pointer  py-2">
-                  <div className="flex items-center justify-between space-x-5 bg-white px-4">
+                <div className="group relative w-full cursor-pointer py-2 px-2">
+                  <div className="flex items-center justify-between space-x-5  px-4">
                     <a className="menu-hover my-2 mx-6 py-2 text-base font-medium text-black text-nowrap">
                       Sort By
                     </a>
@@ -199,24 +233,9 @@ const AllProducts = () => {
           </div>
 
           <div className="allProduct-conatiner p-4 grid grid-cols-3 gap-2">
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-              esse voluptatem sit, unde dignissimos nisi inventore quae autem
-              nostrum, hic officia! Error doloremque culpa dignissimos soluta
-              quos architecto natus vitae?
-            </div>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-              esse voluptatem sit, unde dignissimos nisi inventore quae autem
-              nostrum, hic officia! Error doloremque culpa dignissimos soluta
-              quos architecto natus vitae?
-            </div>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-              esse voluptatem sit, unde dignissimos nisi inventore quae autem
-              nostrum, hic officia! Error doloremque culpa dignissimos soluta
-              quos architecto natus vitae?
-            </div>
+            {allProducts.map((current, index) => {
+              return <Product key={index} current={current} />;
+            })}
           </div>
         </div>
       </div>
@@ -225,5 +244,3 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
-
-// block text-gray-700 font-bold mb-2
