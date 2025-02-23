@@ -12,15 +12,17 @@ import { TbSort90 } from "react-icons/tb";
 import useProductContext from "./context/ProductContext";
 import gsap from "gsap";
 import { useEffect } from "react";
+import FormatPrice from "./FormatPrice";
+import { useFilterContext } from "./context/FilterContext";
 
 const AllProducts = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const [brand, setBrand] = useState();
+  const filterPin = useRef();
+  const [sortvalue, setSortvalue] = useState();
   const { state } = useProductContext();
   const { allProducts } = state;
 
-  console.log(allProducts);
-  const filterPin = useRef();
+  const { getSortValue } = useFilterContext();
 
   useEffect(() => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -37,25 +39,45 @@ const AllProducts = () => {
         },
       });
     }
-    // return () => {
-    //   if (ScrollTrigger.getAll()) {
-    //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    //   }
-    // };
   }, []);
+
+  useEffect(() => {
+    getSortValue(sortvalue);
+  }, [sortvalue]);
+
+  function getfilterData(data, property) {
+    if (!Array.isArray(data)) return [];
+    if (property === "color") {
+      return [...new Set(data.map((curr) => curr.color).flat())];
+    }
+
+    if (property === "size") {
+      return [...new Set(data.map((curr) => curr.size).flat())];
+    }
+    return [...new Set(data.map((item) => item[property]))];
+  }
+
+  const Brand = getfilterData(allProducts, "brand");
+  const Category = getfilterData(allProducts, "category");
+  const Colors = getfilterData(allProducts, "color");
+  const Price = getfilterData(allProducts, "price");
+  const size = getfilterData(allProducts, "size");
+
+  let minPrice = Math.min(...Price);
+  let maxPrice = Math.max(...Price);
 
   return (
     <Fragment>
       <div
-        className=" h-auto w-screen my-6 grid gap-4 px-25"
+        className="grid w-screen h-auto gap-4 my-6 px-25"
         style={{ gridTemplateColumns: "25% 65%" }}
       >
         <div
-          className="filter-section shadow-xl  h-screen w-full p-2 rounded-lg border border-gray-400"
+          className="w-full h-screen p-2 border border-gray-400 rounded-lg shadow-xl filter-section"
           ref={filterPin}
         >
           <div className="p-2 my-2 capitalize">
-            <p className="flex justify-between text-xl text-gray-700 font-bold items-center">
+            <p className="flex items-center justify-between text-xl font-bold text-gray-700">
               filter
               <span className="text-2xl">
                 <MdFilterList />
@@ -64,64 +86,80 @@ const AllProducts = () => {
           </div>
           <hr />
 
-          <div className="mx-auto flex w-full justify-center  text-gray-700 font-bold bg-gray-200 ">
-            <div className="group relative w-full cursor-pointer hover:bg-gray-100 ">
-              <div className="flex items-center justify-between space-x-5 bg-white px-4">
-                <a className="menu-hover my-2 py-1 text-base ">Brand</a>
+          <div className="flex justify-center w-full mx-auto font-bold text-gray-700 bg-gray-200 ">
+            <div className="relative w-full cursor-pointer group hover:bg-gray-100 ">
+              <div className="flex items-center justify-between px-4 space-x-5 bg-white">
+                <a className="py-1 my-2 text-base menu-hover ">Brand</a>
                 <span>
                   <FaAngleDown />
                 </span>
               </div>
 
-              <div
-                onClick={() => setBrand("sunday")}
-                className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible"
-              >
-                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Puma
-                </a>
-                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Gucci
-                </a>
+              <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 text-gray-800 bg-gray-100 shadow-xl group-hover:visible">
+                {Brand.map((current, idx) => {
+                  return (
+                    <a
+                      key={idx}
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                    >
+                      {current}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
           <hr className="text-gray-400" />
-          <div className="mx-auto flex text-gray-700 font-bold w-full justify-center bg-gray-200">
-            <div className="group relative w-full cursor-pointer">
-              <div className="flex items-center justify-between space-x-5 bg-white px-4">
-                <a className="menu-hover my-2 py-2 text-base ">Category</a>
+          <div className="flex justify-center w-full mx-auto font-bold text-gray-700 bg-gray-200">
+            <div className="relative w-full cursor-pointer group">
+              <div className="flex items-center justify-between px-4 space-x-5 bg-white">
+                <a className="py-2 my-2 text-base menu-hover ">Category</a>
                 <span>
                   <FaAngleDown />
                 </span>
               </div>
 
-              <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                <a className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Men
-                </a>
+              <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 text-gray-800 capitalize bg-gray-100 shadow-xl group-hover:visible">
+                {Category.map((curr, idx) => {
+                  return (
+                    <a
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      key={idx}
+                    >
+                      {curr}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
           <hr className="text-gray-400" />
           <div className="size-selection">
-            <div className="w-auto  font-semibold">
-              <div className="flex items-center text-gray-700 font-bold space-x-2 rounded p-4 hover:bg-gray-100 accent-teal-600">
-                <input
-                  type="checkbox"
-                  id="htmlCheckbox"
-                  name="languageCheckbox"
-                  className="h-6 w-6 rounded border-gray-300 text-teal-600 shadow-sm  focus:ring focus:ring-teal-200 focus:ring-opacity-50"
-                />
-                <p className="mx-2 text-gray-700 font-bold"> Size</p>
+            <div className="w-auto font-semibold">
+              <div className="grid grid-cols-6 p-4 space-x-2 font-bold text-gray-700 rounded place-items-center hover:bg-gray-100 accent-teal-600">
+                {size.map((curr, index) => {
+                  return (
+                    <div className="my-1" key={index}>
+                      <input
+                        type="radio"
+                        id="htmlCheckbox"
+                        name="languageCheckbox"
+                        className="w-6 h-6 text-blue-600 border-gray-300 rounded "
+                      />
+                      <p className="font-bold text-center text-gray-700 ">
+                        {curr}{" "}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
           <hr className="text-gray-400" />
-          <div className="mx-auto flex w-full justify-center bg-gray-200">
-            <div className="group relative w-full  cursor-pointer">
-              <div className="flex items-center justify-between space-x-5 bg-white px-4 ">
-                <a className="menu-hover my-2 text-gray-700 font-bold py-2 text-base ">
+          <div className="flex justify-center w-full mx-auto bg-gray-200">
+            <div className="relative w-full cursor-pointer group">
+              <div className="flex items-center justify-between px-4 space-x-5 bg-white ">
+                <a className="py-2 my-2 text-base font-bold text-gray-700 menu-hover ">
                   Color
                 </a>
                 <span>
@@ -129,23 +167,30 @@ const AllProducts = () => {
                 </span>
               </div>
 
-              <div
-                onClick={() => setBrand("sunday")}
-                className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-700 font-bold shadow-xl group-hover:visible"
-              >
-                <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                  Red
-                </a>
+              <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 font-bold text-gray-700 bg-gray-100 shadow-xl group-hover:visible">
+                {Colors.map((curr, idx) => {
+                  return (
+                    <div className="flex my-1  text-center " key={idx}>
+                      <span
+                        className="px-4 py-1 h-auto w-auto rounded-full mx-2"
+                        style={{ backgroundColor: curr }}
+                      ></span>
+                      <a className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black">
+                        {curr}
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
           <hr className="text-gray-400" />
           <div className="Price-range">
-            <div className="bg-white  p-2 w-full max-w-md">
-              <div className="mb-4">
+            <div className="w-full max-w-md p-2 bg-white">
+              <div className="my-2 ">
                 <label
                   htmlFor="price-range"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block mb-2 font-bold text-gray-700"
                 >
                   Price Range
                 </label>
@@ -159,30 +204,41 @@ const AllProducts = () => {
                 />
               </div>
               <div className="flex justify-between text-gray-500">
-                <span id="minPrice">$0</span>
-                <span id="maxPrice">$1000</span>
+                <span id="minPrice">
+                  <FormatPrice price={minPrice} />
+                </span>
+                <span id="maxPrice">
+                  <FormatPrice price={maxPrice} />
+                </span>
               </div>
             </div>
           </div>
+
+          <div className="my-8">
+            <button className="w-full h-auto py-4 font-bold text-white capitalize bg-red-500 rounded-xs">
+              clear
+            </button>
+          </div>
         </div>
 
-        <div className="AllProducts h-auto w-auto">
-          <div className="searchbar flex justify-between shadow-lg w-full h-auto">
-            <div className="flex justify-center rounded-xs w-full items-center px-4 py-4 ">
+        <div className="w-auto h-auto AllProducts">
+          <div className="flex justify-between w-full h-auto shadow-lg searchbar">
+            <div className="flex items-center justify-center w-full px-4 py-4 rounded-xs ">
               <input
                 type="text"
-                className="border w-full h-auto px-3 py-2 text-gray-700 font-bold border-gray-500 border-r-0 "
+                className="w-full h-auto px-3 py-2 font-bold text-gray-700 border border-r-0 border-gray-500 "
                 placeholder="Search anything..."
+                // onChange={sortData}
               />
-              <button className="px-8 py-2 border border-l-0 border-gray-500  text-2xl">
+              <button className="px-8 py-2 text-2xl border border-l-0 border-gray-500">
                 <IoIosSearch />
               </button>
             </div>
             <div>
-              <div className="mx-auto flex w-full justify-center ">
-                <div className="group relative w-full cursor-pointer py-2 px-2">
-                  <div className="flex items-center justify-between space-x-5  px-4">
-                    <a className="menu-hover my-2 mx-6 py-2 text-base font-medium text-black text-nowrap">
+              <div className="flex justify-center w-full mx-auto ">
+                <div className="relative w-full px-2 py-2 cursor-pointer group">
+                  <div className="flex items-center justify-between px-4 space-x-5">
+                    <a className="py-2 mx-6 my-2 text-base font-medium text-black menu-hover text-nowrap">
                       Sort By
                     </a>
                     <span>
@@ -190,36 +246,45 @@ const AllProducts = () => {
                     </span>
                   </div>
 
-                  <div
-                    onClick={() => setBrand("sunday")}
-                    className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible"
-                  >
-                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                      <p className="flex justify-between items-center">
+                  <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 text-gray-800 bg-gray-100 shadow-xl group-hover:visible">
+                    <a
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      onClick={() => setSortvalue("ascending")}
+                    >
+                      <p className="flex items-center justify-between">
                         A-Z
                         <span>
                           <FaSortAlphaUp />
                         </span>
                       </p>
                     </a>
-                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                      <p className="flex justify-between items-center">
+                    <a
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      onClick={() => setSortvalue("descending")}
+                    >
+                      <p className="flex items-center justify-between">
                         Z-A
                         <span>
                           <FaSortAlphaDownAlt />
                         </span>
                       </p>
                     </a>
-                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                      <p className="flex justify-between items-center">
+                    <a
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      onClick={() => setSortvalue("1-9")}
+                    >
+                      <p className="flex items-center justify-between">
                         1-9
                         <span>
                           <TbSort09 />
                         </span>
                       </p>
                     </a>
-                    <a className="block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black">
-                      <p className="flex justify-between items-center">
+                    <a
+                      className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      onClick={() => setSortvalue("9-1")}
+                    >
+                      <p className="flex items-center justify-between">
                         9-1
                         <span>
                           <TbSort90 />
@@ -232,7 +297,7 @@ const AllProducts = () => {
             </div>
           </div>
 
-          <div className="allProduct-conatiner p-4 grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-2 p-4 allProduct-conatiner">
             {allProducts.map((current, index) => {
               return <Product key={index} current={current} />;
             })}
