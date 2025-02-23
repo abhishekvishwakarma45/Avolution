@@ -19,10 +19,11 @@ const AllProducts = () => {
   gsap.registerPlugin(ScrollTrigger);
   const filterPin = useRef();
   const [sortvalue, setSortvalue] = useState();
-  const { state } = useProductContext();
-  const { allProducts } = state;
+  // const { state } = useProductContext();
+  // const { allProducts } = state;
 
-  const { getSortValue } = useFilterContext();
+  const { getSortValue, FilterState } = useFilterContext();
+  const { filteredProducts } = FilterState;
 
   useEffect(() => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -57,11 +58,11 @@ const AllProducts = () => {
     return [...new Set(data.map((item) => item[property]))];
   }
 
-  const Brand = getfilterData(allProducts, "brand");
-  const Category = getfilterData(allProducts, "category");
-  const Colors = getfilterData(allProducts, "color");
-  const Price = getfilterData(allProducts, "price");
-  const size = getfilterData(allProducts, "size");
+  const Brand = getfilterData(filteredProducts, "brand");
+  const Category = getfilterData(filteredProducts, "category");
+  const Colors = getfilterData(filteredProducts, "color");
+  const Price = getfilterData(filteredProducts, "price");
+  const size = getfilterData(filteredProducts, "size");
 
   let minPrice = Math.min(...Price);
   let maxPrice = Math.max(...Price);
@@ -239,7 +240,7 @@ const AllProducts = () => {
                 <div className="relative w-full px-2 py-2 cursor-pointer group">
                   <div className="flex items-center justify-between px-4 space-x-5">
                     <a className="py-2 mx-6 my-2 text-base font-medium text-black menu-hover text-nowrap">
-                      Sort By
+                      {sortvalue ? sortvalue : "Sort By"}
                     </a>
                     <span>
                       <FaAngleDown />
@@ -249,7 +250,7 @@ const AllProducts = () => {
                   <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 text-gray-800 bg-gray-100 shadow-xl group-hover:visible">
                     <a
                       className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
-                      onClick={() => setSortvalue("ascending")}
+                      onClick={() => setSortvalue("A-Z")}
                     >
                       <p className="flex items-center justify-between">
                         A-Z
@@ -260,7 +261,7 @@ const AllProducts = () => {
                     </a>
                     <a
                       className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
-                      onClick={() => setSortvalue("descending")}
+                      onClick={() => setSortvalue("Z-A")}
                     >
                       <p className="flex items-center justify-between">
                         Z-A
@@ -298,7 +299,7 @@ const AllProducts = () => {
           </div>
 
           <div className="grid grid-cols-3 gap-2 p-4 allProduct-conatiner">
-            {allProducts.map((current, index) => {
+            {filteredProducts.map((current, index) => {
               return <Product key={index} current={current} />;
             })}
           </div>
