@@ -9,7 +9,7 @@ import Product from "./Product";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TbSort09 } from "react-icons/tb";
 import { TbSort90 } from "react-icons/tb";
-import useProductContext from "./context/ProductContext";
+
 import gsap from "gsap";
 import { useEffect } from "react";
 import FormatPrice from "./FormatPrice";
@@ -19,11 +19,11 @@ const AllProducts = () => {
   gsap.registerPlugin(ScrollTrigger);
   const filterPin = useRef();
   const [sortvalue, setSortvalue] = useState();
-  // const { state } = useProductContext();
-  // const { allProducts } = state;
 
-  const { getSortValue, FilterState } = useFilterContext();
-  const { filteredProducts } = FilterState;
+  const { getSortValue, FilterState, updateFilterValue, ClearFilter } =
+    useFilterContext();
+  const { filteredProducts, filter } = FilterState;
+  const { price } = filter;
 
   useEffect(() => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -102,6 +102,9 @@ const AllProducts = () => {
                     <a
                       key={idx}
                       className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                      value={current}
+                      name="brand"
+                      onClick={() => updateFilterValue("brand", current)}
                     >
                       {current}
                     </a>
@@ -121,13 +124,14 @@ const AllProducts = () => {
               </div>
 
               <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 text-gray-800 capitalize bg-gray-100 shadow-xl group-hover:visible">
-                {Category.map((curr, idx) => {
+                {Category.map((current, idx) => {
                   return (
                     <a
                       className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
                       key={idx}
+                      onClick={() => updateFilterValue("category", current)}
                     >
-                      {curr}
+                      {current}
                     </a>
                   );
                 })}
@@ -138,17 +142,18 @@ const AllProducts = () => {
           <div className="size-selection">
             <div className="w-auto font-semibold">
               <div className="grid grid-cols-6 p-4 space-x-2 font-bold text-gray-700 rounded place-items-center hover:bg-gray-100 accent-teal-600">
-                {size.map((curr, index) => {
+                {size.map((current, index) => {
                   return (
                     <div className="my-1" key={index}>
                       <input
+                        onClick={() => updateFilterValue("size", current)}
                         type="radio"
                         id="htmlCheckbox"
                         name="languageCheckbox"
                         className="w-6 h-6 text-blue-600 border-gray-300 rounded "
                       />
                       <p className="font-bold text-center text-gray-700 ">
-                        {curr}{" "}
+                        {current}
                       </p>
                     </div>
                   );
@@ -169,15 +174,18 @@ const AllProducts = () => {
               </div>
 
               <div className="absolute z-50 flex flex-col invisible w-full px-4 py-1 font-bold text-gray-700 bg-gray-100 shadow-xl group-hover:visible">
-                {Colors.map((curr, idx) => {
+                {Colors.map((current, idx) => {
                   return (
                     <div className="flex my-1  text-center " key={idx}>
                       <span
                         className="px-4 py-1 h-auto w-auto rounded-full mx-2"
-                        style={{ backgroundColor: curr }}
+                        style={{ backgroundColor: current }}
                       ></span>
-                      <a className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black">
-                        {curr}
+                      <a
+                        className="block py-1 font-semibold text-gray-500 border-b border-gray-100 hover:text-black"
+                        onClick={() => updateFilterValue("color", current)}
+                      >
+                        {current}
                       </a>
                     </div>
                   );
@@ -199,9 +207,10 @@ const AllProducts = () => {
                   type="range"
                   id="price-range"
                   className="w-full accent-indigo-600"
-                  min="0"
-                  max="1000"
-                  value="500"
+                  min={minPrice}
+                  max={maxPrice}
+                  value={price ? price : 0}
+                  onChange={(e) => updateFilterValue("price", e.target.value)}
                 />
               </div>
               <div className="flex justify-between text-gray-500">
@@ -216,7 +225,10 @@ const AllProducts = () => {
           </div>
 
           <div className="my-8">
-            <button className="w-full h-auto py-4 font-bold text-white capitalize bg-red-500 rounded-xs">
+            <button
+              onClick={ClearFilter}
+              className="w-full h-auto py-4 font-bold text-white capitalize bg-red-500 rounded-xs"
+            >
               clear
             </button>
           </div>
@@ -227,9 +239,11 @@ const AllProducts = () => {
             <div className="flex items-center justify-center w-full px-4 py-4 rounded-xs ">
               <input
                 type="text"
+                onChange={(e) =>
+                  updateFilterValue("searchvalue", e.target.value)
+                }
                 className="w-full h-auto px-3 py-2 font-bold text-gray-700 border border-r-0 border-gray-500 "
                 placeholder="Search anything..."
-                // onChange={sortData}
               />
               <button className="px-8 py-2 text-2xl border border-l-0 border-gray-500">
                 <IoIosSearch />

@@ -39,7 +39,6 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(0);
   gsap.registerPlugin(ScrollTrigger);
 
-  console.log(selectedSize);
   const ImageRef = useRef(null);
 
   useEffect(() => {

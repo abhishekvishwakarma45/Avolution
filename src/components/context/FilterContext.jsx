@@ -6,7 +6,16 @@ import useProductContext from "./ProductContext";
 
 const initialState = {
   sortValue: "",
-  filteredProducts: [], // Initially empty
+  filteredProducts: [],
+  filterValue: "",
+  filter: {
+    searchvalue: "",
+    category: "",
+    brand: "",
+    size: "",
+    color: "",
+    price: 0,
+  },
 };
 
 export default function FilterContextProvider({ children }) {
@@ -30,10 +39,23 @@ export default function FilterContextProvider({ children }) {
     }
   }, [FilterState.sortValue, allProducts]);
 
-  console.log("Filtered Products:", FilterState.filteredProducts);
+  function updateFilterValue(name, value) {
+    dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
+  }
 
+  function ClearFilter() {
+    dispatch({ type: "CLEAR_FILTER" });
+  }
+
+  useEffect(() => {
+    if (FilterState.filter && allProducts.length > 0) {
+      dispatch({ type: "FILTER_PRODUCTS", payload: allProducts });
+    }
+  }, [FilterState.filter, allProducts]);
   return (
-    <filterContext.Provider value={{ FilterState, getSortValue }}>
+    <filterContext.Provider
+      value={{ FilterState, getSortValue, updateFilterValue, ClearFilter }}
+    >
       {children}
     </filterContext.Provider>
   );
