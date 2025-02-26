@@ -1,7 +1,8 @@
 import React from "react";
 import { Fragment } from "react";
-import { NavLink } from "react-router";
+
 import FormatPrice from "./FormatPrice";
+// import "animate.css";
 
 const Product = ({ current }) => {
   const { id, name, brand, price, color, image, size } = current;
@@ -10,7 +11,7 @@ const Product = ({ current }) => {
     <Fragment>
       <a href={`/product/${id}`}>
         <div
-          className="w-full h-auto p-2 m-2"
+          className="w-full h-auto p-2 m-2 "
           style={{ boxShadow: "0 2px 7px rgba(0, 0, 0, 0.3)" }}
         >
           <div className="w-auto image-container" style={{ height: "35vh" }}>

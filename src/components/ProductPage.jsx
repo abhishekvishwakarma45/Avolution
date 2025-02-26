@@ -10,16 +10,20 @@ import { useParams } from "react-router";
 import useProductContext from "./context/ProductContext";
 import FormatPrice from "./FormatPrice";
 
+import { useCartContext } from "./context/CartContext";
+
 const ProductPage = () => {
   const { getProductById, state } = useProductContext();
   const { singleProduct } = state;
+
+  const { cartState, addToCart } = useCartContext();
 
   const { id } = useParams();
   useEffect(() => {
     if (id) {
       getProductById(id);
     }
-  }, [id]);
+  }, [id, getProductById]);
 
   const {
     name,
@@ -36,33 +40,33 @@ const ProductPage = () => {
   const [selectedColor, setSelectedColor] = useState(false);
   const [selectedSize, setSelectedSize] = useState(false);
 
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   gsap.registerPlugin(ScrollTrigger);
 
   const ImageRef = useRef(null);
 
-  useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  // useEffect(() => {
+  //   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-    if (isDesktop) {
-      gsap.to(ImageRef.current, {
-        scrollTrigger: {
-          trigger: ImageRef.current,
-          pin: true,
-          pinSpacing: false,
-          scrub: 2,
+  //   if (isDesktop) {
+  //     gsap.to(ImageRef.current, {
+  //       scrollTrigger: {
+  //         trigger: ImageRef.current,
+  //         pin: true,
+  //         pinSpacing: false,
+  //         scrub: 2,
 
-          start: "top top",
-          end: "+=100%",
-        },
-      });
-    }
-    return () => {
-      if (ScrollTrigger.getAll()) {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      }
-    };
-  }, []);
+  //         start: "top top",
+  //         end: "+=100%",
+  //       },
+  //     });
+  //   }
+  //   return () => {
+  //     if (ScrollTrigger.getAll()) {
+  //       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //     }
+  //   };
+  // }, []);
 
   return (
     <Fragment>
@@ -103,7 +107,11 @@ const ProductPage = () => {
                   return (
                     <button
                       key={index}
-                      className={`h-8 w-8 my-2 mr-2  text-white uppercase bg-black rounded-xs`}
+                      className={`h-8 w-8 my-2 mr-2 rounded-xs uppercase ${
+                        selectedSize === current
+                          ? "text-white bg-black "
+                          : "border border-grey-300"
+                      }`}
                       onClick={() => {
                         setSelectedSize(current);
                       }}
@@ -133,7 +141,19 @@ const ProductPage = () => {
             >
               <AiOutlineMinus />
             </button>
-            <button className="p-3 mx-4 text-xs uppercase bg-amber-300 rounded-xs">
+            <button
+              className="p-3 mx-4 text-xs uppercase bg-amber-300 rounded-xs"
+              onClick={() =>
+                addToCart(
+                  id,
+                  selectedColor,
+                  quantity,
+                  selectedSize,
+                  price,
+                  singleProduct
+                )
+              }
+            >
               add to cart
             </button>
           </div>

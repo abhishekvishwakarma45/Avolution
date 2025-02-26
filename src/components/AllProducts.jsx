@@ -9,7 +9,6 @@ import Product from "./Product";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TbSort09 } from "react-icons/tb";
 import { TbSort90 } from "react-icons/tb";
-
 import gsap from "gsap";
 import { useEffect } from "react";
 import FormatPrice from "./FormatPrice";
@@ -70,11 +69,11 @@ const AllProducts = () => {
   return (
     <Fragment>
       <div
-        className="grid w-screen h-auto gap-4 my-6 px-25"
+        className="flex justify-center w-screen h-auto gap-4 my-6 px-4 md:px-10 lg:px-20 lg:grid"
         style={{ gridTemplateColumns: "25% 65%" }}
       >
         <div
-          className="w-full h-screen p-2 border border-gray-400 rounded-lg shadow-xl filter-section"
+          className="w-full h-screen p-2 border border-gray-400 rounded-lg shadow-xl filter-section hidden lg:block"
           ref={filterPin}
         >
           <div className="p-2 my-2 capitalize">
@@ -209,7 +208,7 @@ const AllProducts = () => {
                   className="w-full accent-indigo-600"
                   min={minPrice}
                   max={maxPrice}
-                  value={price ? price : 0}
+                  value={price}
                   onChange={(e) => updateFilterValue("price", e.target.value)}
                 />
               </div>
@@ -235,7 +234,7 @@ const AllProducts = () => {
         </div>
 
         <div className="w-auto h-auto AllProducts">
-          <div className="flex justify-between w-full h-auto shadow-lg searchbar">
+          <div className="flex flex-col justify-between w-full h-auto shadow-lg searchbar lg:flex-row">
             <div className="flex items-center justify-center w-full px-4 py-4 rounded-xs ">
               <input
                 type="text"
@@ -252,7 +251,7 @@ const AllProducts = () => {
             <div>
               <div className="flex justify-center w-full mx-auto ">
                 <div className="relative w-full px-2 py-2 cursor-pointer group">
-                  <div className="flex items-center justify-between px-4 space-x-5">
+                  <div className="flex items-center justify-end px-4 space-x-5">
                     <a className="py-2 mx-6 my-2 text-base font-medium text-black menu-hover text-nowrap">
                       {sortvalue ? sortvalue : "Sort By"}
                     </a>
@@ -312,7 +311,7 @@ const AllProducts = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 p-4 allProduct-conatiner">
+          <div className="grid grid-cols-1 gap-2 p-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((current, index) => {
               return <Product key={index} current={current} />;
             })}
