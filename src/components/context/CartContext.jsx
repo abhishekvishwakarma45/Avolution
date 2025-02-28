@@ -52,8 +52,15 @@ export default function CartContextProvider({ children }) {
     dispatch({ type: "TOGGLE_CART" });
   };
 
+  const RemoveItem = (id) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
+
+  console.log(cartState.totalprice);
   return (
-    <CartContext.Provider value={{ cartState, addToCart, toggleCart }}>
+    <CartContext.Provider
+      value={{ cartState, addToCart, toggleCart, RemoveItem }}
+    >
       {children}
     </CartContext.Provider>
   );

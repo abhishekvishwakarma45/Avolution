@@ -1,12 +1,25 @@
 import React, { Fragment } from "react";
 import { useCartContext } from "./components/context/CartContext";
+import FormatPrice from "./components/FormatPrice";
 
 const Cart = () => {
-  const { cartState, toggleCart } = useCartContext(); // Use toggleCart instead of hideCart
-  const { cart, showcart } = cartState;
+  const { cartState, toggleCart, RemoveItem } = useCartContext();
+  const { cart, showcart, totalprice } = cartState;
 
-  console.log(showcart); // Ensure that this logs 'true' when the cart should be visible
-
+  // if (cart.length <= 0) {
+  //   return (
+  //     <div className="cart-empty-container">
+  //       <div className="cart-empty-message">
+  //         <h2>Your cart is currently empty</h2>
+  //         <p>
+  //           Before proceeding to checkout, you must add some products to your
+  //           shopping cart. You will find a lot of interesting products on our
+  //           Shop page.
+  //         </p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
   return (
     <Fragment>
       <div
@@ -37,7 +50,7 @@ const Cart = () => {
                       <button
                         type="button"
                         className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                        onClick={toggleCart} // Use toggleCart instead of hideCart
+                        onClick={toggleCart}
                       >
                         <span className="sr-only">Close panel</span>
                         <svg
@@ -77,22 +90,25 @@ const Cart = () => {
                                       <h3>
                                         <a href="#">{curr.name}</a>
                                       </h3>
-                                      <p className="ml-4">{curr.price}</p>
+                                      <FormatPrice price={curr.price} />
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">
-                                      {curr.selectedSize} - {curr.selectedColor}
+                                      <span>Color: {curr.selectedColor}</span>
+                                      <br />
+                                      <span>Size:{curr.selectedSize}</span>
                                     </p>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">
-                                      Qty {curr.quantity}
-                                    </p>
-                                    <button
-                                      type="button"
-                                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                                    >
-                                      Remove
-                                    </button>
+                                    <div className="flex flex-1 items-end justify-between text-sm">
+                                      <p className="text-gray-500">
+                                        Quantity: {curr.quantity}
+                                      </p>
+                                      <button
+                                        onClick={() => RemoveItem(curr.id)}
+                                        type="button"
+                                        className="font-medium text-red-600 hover:text-gray-600"
+                                      >
+                                        Remove
+                                      </button>
+                                    </div>
                                   </div>
                                 </li>
                               ))
@@ -104,7 +120,7 @@ const Cart = () => {
                   <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <p>Subtotal</p>
-                      <p>$262.00</p>
+                      <FormatPrice price={totalprice} />
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">
                       Shipping and taxes calculated at checkout.
@@ -112,7 +128,7 @@ const Cart = () => {
                     <div className="mt-6">
                       <a
                         href="#"
-                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
+                        className="flex items-center justify-center rounded-md border border-transparent bg-amber-300 px-6 py-3 text-base font-medium text-black shadow-xs hover:bg-amber-200  transition ease-in"
                       >
                         Checkout
                       </a>

@@ -1,3 +1,5 @@
+import Cart from "../../Cart";
+
 export const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
@@ -22,7 +24,8 @@ export const CartReducer = (state, action) => {
             ? {
                 ...curr,
                 quantity: curr.quantity + quantity,
-                price: price * (curr.quantity + quantity),
+                price:
+                  (curr.price / curr.quantity) * (curr.quantity + quantity),
               }
             : curr
         );
@@ -39,17 +42,33 @@ export const CartReducer = (state, action) => {
         updatedCart = [...state.cart, cartProduct];
       }
 
+      let newPrice = state.cart.reduce((acc, curr) => {
+        let totalprice = acc + curr.price;
+        return totalprice;
+      }, 0);
+
       return {
         ...state,
         cart: updatedCart,
+        totalprice: newPrice,
       };
     }
 
     case "TOGGLE_CART": {
-      // Toggle action
       return {
         ...state,
         showcart: !state.showcart,
+      };
+    }
+
+    case "REMOVE_ITEM": {
+      let id = action.payload;
+      let updatedCart = state.cart.filter((curr) => {
+        return curr.id !== id;
+      });
+      return {
+        ...state,
+        cart: updatedCart,
       };
     }
 
