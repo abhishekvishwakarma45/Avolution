@@ -76,15 +76,18 @@ const ProductPage = () => {
         </div>
 
         <div className="px-4 py-2 capitalize description-container sm: lg:py-5">
-          <p className="my-2 text-xs uppercase">{category}</p>
+          <p className="my-2 text-xs uppercase">{brand}</p>
           <h1 className="text-2xl font-bold my-1.5">{name}</h1>
+          <p className="my-2 text-xs uppercase">{category}</p>
           <p className="my-1 font-extrabold">
             <FormatPrice price={price} />
-            <span className="my-1 text-xs ">& shipping charges</span>
+            <span className="mx-1 text-xs ">& shipping charges</span>
           </p>
 
           <p className="my-1 ">{description}</p>
           <div className="color-container">
+            <span className="my-1 font-bold text-xs ">color:</span>
+            <br />
             {Array.isArray(color)
               ? color.map((current, index) => {
                   return (
@@ -102,6 +105,8 @@ const ProductPage = () => {
           </div>
 
           <div className="size-container">
+            <span className="my-1 font-bold text-xs ">size:</span>
+            <br />
             {Array.isArray(size)
               ? size.map((current, index) => {
                   return (

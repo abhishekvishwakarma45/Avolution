@@ -6,20 +6,6 @@ const Cart = () => {
   const { cartState, toggleCart, RemoveItem } = useCartContext();
   const { cart, showcart, totalprice } = cartState;
 
-  // if (cart.length <= 0) {
-  //   return (
-  //     <div className="cart-empty-container">
-  //       <div className="cart-empty-message">
-  //         <h2>Your cart is currently empty</h2>
-  //         <p>
-  //           Before proceeding to checkout, you must add some products to your
-  //           shopping cart. You will find a lot of interesting products on our
-  //           Shop page.
-  //         </p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
   return (
     <Fragment>
       <div
@@ -69,52 +55,76 @@ const Cart = () => {
                         </svg>
                       </button>
                     </div>
-                    <div className="mt-8">
-                      <div className="flow-root">
-                        <ul
-                          role="list"
-                          className="-my-6 divide-y divide-gray-200"
-                        >
-                          {Array.isArray(cart)
-                            ? cart.map((curr, idx) => (
-                                <li key={idx} className="flex py-6">
-                                  <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <img
-                                      src={curr.image}
-                                      alt={curr.name}
-                                      className="size-full object-cover"
-                                    />
-                                  </div>
-                                  <div className="ml-4 flex flex-1 flex-col">
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href="#">{curr.name}</a>
-                                      </h3>
-                                      <FormatPrice price={curr.price} />
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      <span>Color: {curr.selectedColor}</span>
-                                      <br />
-                                      <span>Size:{curr.selectedSize}</span>
-                                    </p>
-                                    <div className="flex flex-1 items-end justify-between text-sm">
-                                      <p className="text-gray-500">
-                                        Quantity: {curr.quantity}
-                                      </p>
-                                      <button
-                                        onClick={() => RemoveItem(curr.id)}
-                                        type="button"
-                                        className="font-medium text-red-600 hover:text-gray-600"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </li>
-                              ))
-                            : []}
-                        </ul>
-                      </div>
+                    <div className="mt-8 ">
+                      {cart.length === 0 ? (
+                        <div className="cart-empty-container text-center py-5 px-10 ">
+                          <div className="cart-empty-message ">
+                            <h2 className="text-xl font-bold">
+                              Your cart is currently empty
+                            </h2>
+                            <p className="text-base text-gray-600 mt-2">
+                              Before proceeding to checkout, you must add some
+                              products to your shopping cart.
+                            </p>
+                            <button className="continue-shopping-btn mt-5 px-5 py-2 text-base bg-black text-white border-none cursor-pointer rounded-md transition-colors hover:bg-transparent hover:border hover:border-black hover:text-black">
+                              Continue Shopping
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flow-root">
+                          <ul
+                            role="list"
+                            className="-my-6 divide-y divide-gray-200"
+                          >
+                            {Array.isArray(cart)
+                              ? cart.map((curr, idx) => (
+                                  <a
+                                    key={idx}
+                                    href={`/product/${curr.id.slice(0, 1)}`}
+                                  >
+                                    <li className="flex py-6">
+                                      <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                        <img
+                                          src={curr.image}
+                                          alt={curr.name}
+                                          className="size-full object-cover"
+                                        />
+                                      </div>
+                                      <div className="ml-4 flex flex-1 flex-col">
+                                        <div className="flex justify-between text-base font-medium text-gray-900">
+                                          <h3>
+                                            <a href="#">{curr.name}</a>
+                                          </h3>
+                                          <FormatPrice price={curr.price} />
+                                        </div>
+                                        <p className="mt-1 text-sm text-gray-500">
+                                          <span>
+                                            Color: {curr.selectedColor}
+                                          </span>
+                                          <br />
+                                          <span>Size:{curr.selectedSize}</span>
+                                        </p>
+                                        <div className="flex flex-1 items-end justify-between text-sm">
+                                          <p className="text-gray-500">
+                                            Quantity: {curr.quantity}
+                                          </p>
+                                          <button
+                                            onClick={() => RemoveItem(curr.id)}
+                                            type="button"
+                                            className="font-medium text-red-600 hover:text-gray-600"
+                                          >
+                                            Remove
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </li>
+                                  </a>
+                                ))
+                              : []}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="border-t border-gray-200 px-4 py-6 sm:px-6">

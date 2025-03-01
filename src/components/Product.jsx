@@ -22,17 +22,17 @@ const Product = ({ current }) => {
               loading="lazy"
             />
 
-            {/* <span
-            className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2 "
-            style={{ top: "-95%" }}
-          >
-            20%
-          </span> */}
+            <span
+              className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2 "
+              style={{ top: "-95%" }}
+            >
+              20%
+            </span>
           </div>
 
           <div className="w-full h-auto p-3 text-left product-desc capitalise">
             <p className="mt-1 uppercase">{brand}</p>
-            <p className="mt-1 text-2xl font-bold ">{name}</p>
+            <p className="mt-1 text-lg font-bold ">{name}</p>
             <p className="mt-1 mb-2 font-bold">
               <FormatPrice price={price} />
             </p>
@@ -42,7 +42,7 @@ const Product = ({ current }) => {
                     return (
                       <button
                         key={index}
-                        className="p-3 mr-3 border border-gray-400 rounded-xs"
+                        className="p-3 mr-2 border border-gray-400 rounded-xs"
                         style={{ backgroundColor: curr }}
                       ></button>
                     );
@@ -55,7 +55,7 @@ const Product = ({ current }) => {
                     return (
                       <button
                         key={index}
-                        className="p-3 my-2 mr-2 text-xs text-white uppercase bg-black rounded-xs"
+                        className="p-2 my-2 mr-2 text-xs text-white uppercase bg-black rounded-xs"
                       >
                         {curr}
                       </button>
