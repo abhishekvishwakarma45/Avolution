@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Basic White T-Shirt",
+    "name": "Regular Fit T-shirt",
     "price": 19.99,
     "brand": "Nike",
     "description": "A classic white t-shirt made of 100% cotton for maximum comfort and breathability.",
@@ -10,7 +10,7 @@
     "color": ["#F4A2B5", "#414141", "#020202", "#F3EFEC"],
     "size": ["S", "M", "L", "XL"],
     "category": "male",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/hm-tshirt.png"
   },
   {
     "id": "2",
@@ -23,7 +23,7 @@
     "color": ["#1F0955", "#F3EFEC", "#002495", "#FAFAFA"],
     "size": ["M", "L", "XL"],
     "category": "male",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/relaxedjeans.jpg"
   },
   {
     "id": "3",
@@ -36,7 +36,7 @@
     "color": ["#414141", "#020202", "#FDD6B1", "#0493CD"],
     "size": ["30", "32", "34", "36"],
     "category": "male",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/shirt.png"
   },
   {
     "id": "4",
@@ -44,12 +44,12 @@
     "price": 49.99,
     "brand": "Adidas",
     "description": "Soft, cozy hoodie perfect for casual outings or lounging at home.",
-    "isFeature": true,
+    "isFeature": false,
     "stock": 45,
     "color": ["#F4A2B5", "#002495", "#FDD6B1", "#FAFAFA"],
     "size": ["S", "M", "L", "XL"],
     "category": "male",
-    "image": "/mohamad-khosravi-yMpZJvTEspk-unsplash.jpg"
+    "image": "product_img/cargo.png"
   },
   {
     "id": "5",
@@ -62,7 +62,7 @@
     "color": ["#F3EFEC", "#002495", "#FDD6B1", "#0493CD"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/sweatshirt.png"
   },
   {
     "id": "6",
@@ -75,7 +75,7 @@
     "color": ["#414141", "#1F0955", "#002495", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/gaon.png"
   },
   {
     "id": "7",
@@ -88,7 +88,7 @@
     "color": ["#FAFAFA", "#0493CD", "#414141", "#FDD6B1"],
     "size": ["28", "30", "32"],
     "category": "female",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/jacket.png"
   },
   {
     "id": "8",
@@ -101,7 +101,7 @@
     "color": ["#020202", "#F4A2B5", "#002495", "#1F0955"],
     "size": ["S", "M", "L", "XL"],
     "category": "female",
-    "image": "/portrait-young-japanese-woman-with-jacket.jpg"
+    "image": "product_img/sweatshirt2.png"
   },
   {
     "id": "11",
@@ -109,12 +109,12 @@
     "price": 79.99,
     "brand": "North Face",
     "description": "A stylish bomber jacket with a smooth finish, perfect for layering over any outfit.",
-    "isFeature": false,
+    "isFeature": true,
     "stock": 25,
     "color": ["#414141", "#002495", "#FAFAFA", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "male",
-    "image": "/amir-soltani-1_zIOXwhW64-unsplash.jpg"
+    "image": "product_img/cap.jpg"
   },
   {
     "id": "12",
@@ -127,6 +127,6 @@
     "color": ["#F4A2B5", "#1F0955", "#F3EFEC", "#020202"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "/shervin-khoddami-xz4kmxLXorg-unsplash.jpg"
+    "image": "product_img/shoes.png"
   }
 ]

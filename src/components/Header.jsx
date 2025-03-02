@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"; // Use correct import for NavLink fr
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
 import { RiMenu3Fill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa6";
 
 import { useCartContext } from "./context/CartContext";
 
@@ -12,34 +13,35 @@ const Header = () => {
 
   return (
     <Fragment>
-      <div className="grid w-screen h-20 grid-cols-2 pt-1 pb-1 pl-2 pr-2 header-container lg:grid-cols-3">
-        <div className="items-center justify-start flex-auto hidden w-auto h-full lg:flex">
-          <ul className="flex items-center justify-center w-auto h-auto pl-4 font-bold text-center uppercase flexwrap">
-            <a href="/">
-              <li className="m-2">Home</li>
-            </a>
-            <a href="/">
-              <li className="m-2">Categories</li>
-            </a>
-            <a href="">
-              <li className="m-2">About</li>
-            </a>
-            <a href="">
-              <li className="m-2">Contact</li>
-            </a>
-          </ul>
+      <div className="flex justify-between items-center w-full h-20 px-4 lg:px-8">
+        {/* Left Side - Navigation Links */}
+        <div className="hidden lg:flex items-center space-x-6">
+          <NavLink to="/" className="font-bold text-lg uppercase">
+            Home
+          </NavLink>
+          <NavLink to="/categories" className="font-bold text-lg uppercase">
+            Categories
+          </NavLink>
+          <NavLink to="/about" className="font-bold text-lg uppercase">
+            About
+          </NavLink>
+          <NavLink to="/contact" className="font-bold text-lg uppercase">
+            Contact
+          </NavLink>
         </div>
 
-        <div className="grid w-auto h-20 text-4xl place-items-left lg:place-items-center logo-container">
+        {/* Center - Logo */}
+        <div className="flex justify-center items-center w-full">
           <NavLink to="/">
             <img
-              className="object-contain w-auto h-20 mix-blend-multiply"
+              className="object-contain h-16 lg:h-20"
               src="logo-removebg-preview.png"
               alt="Logo"
             />
           </NavLink>
         </div>
 
+        {/* Right Side - Search, Cart, Login */}
         <div className="flex items-center justify-end w-auto h-full pr-4 space-x-4 overflow-visible lg:flex header-right-container">
           <div className="inline-block m-3">
             <a href="/allproducts">
@@ -47,6 +49,13 @@ const Header = () => {
                 <IoIosSearch />
               </button>
             </a>
+          </div>
+          <div className="hidden m-3 lg:inline-block">
+            <NavLink to="/login">
+              <button className=" text-2xl font-bold text-black uppercase transition-all ease-in  rounded-xs hover:bg-indigo-300">
+                <FaUser />
+              </button>
+            </NavLink>
           </div>
 
           <div className="m-3">
@@ -59,14 +68,6 @@ const Header = () => {
                 {cart.length}
               </span>
             </button>
-          </div>
-
-          <div className="hidden m-3 lg:inline-block">
-            <NavLink to="/login">
-              <button className="flex pt-2 pb-2 pl-8 pr-8 font-bold text-white uppercase transition-all ease-in bg-black rounded-xs hover:bg-indigo-300">
-                Login
-              </button>
-            </NavLink>
           </div>
 
           <div className="m-0">
