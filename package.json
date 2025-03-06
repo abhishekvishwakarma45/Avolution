@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.1",
-    "animate.css": "^4.1.1",
     "axios": "^1.7.9",
     "gsap": "^3.12.7",
     "prac": "file:",

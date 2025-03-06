@@ -69,12 +69,12 @@ const AllProducts = () => {
   return (
     <Fragment>
       <div className="w-auto h-auto AllProducts">
-        <div className="flex flex-col justify-between w-full h-auto searchbar lg:flex-row">
-          <div className="flex items-center justify-center w-full px-4 py-4 rounded-xs ">
+        {/* <div className="flex flex-col justify-between w-full h-auto searchbar lg:flex-row">
+          <div className="flex items-center justify-center w-full  py-4 rounded-xs ">
             <input
               type="text"
               onChange={(e) => updateFilterValue("searchvalue", e.target.value)}
-              className="w-[70%] h-auto px-3 py-2 outline-none font-bold text-gray-700 border border-r-0 border-gray-500 "
+              className="w-[65%] h-auto px-3 py-2 outline-none font-bold text-gray-700 border border-r-0 border-gray-500 "
               placeholder="Search anything..."
             />
             <button className="px-8 py-2 text-2xl border border-l-0 border-gray-500">
@@ -143,7 +143,7 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div
           className="flex justify-center w-screen h-auto gap-4 my-6 px-4 md:px-10 lg:px-20 lg:grid"

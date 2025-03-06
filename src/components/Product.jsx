@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Fragment } from "react";
-
 import FormatPrice from "./FormatPrice";
-import "animate.css";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // Make sure ScrollTrigger is imported
+
+gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
 const Product = ({ current }) => {
   const { id, name, brand, price, color, image, size } = current;
+  const productRef = useRef();
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+    if (isDesktop) {
+      gsap.from(productRef.current, {
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: productRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: true,
+        },
+      });
+    }
+  }, []);
 
   return (
     <Fragment>
       <a href={`/product/${id}`}>
         <div
-          className="w-full animate__animated animate__fadeIn h-auto p-2 m-2 "
+          ref={productRef}
+          className="w-full h-auto p-2 m-2"
           style={{ boxShadow: "0 2px 7px rgba(0, 0, 0, 0.3)" }}
         >
           <div className="w-auto image-container" style={{ height: "35vh" }}>
@@ -23,7 +45,7 @@ const Product = ({ current }) => {
             />
 
             <span
-              className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2 "
+              className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2"
               style={{ top: "-95%" }}
             >
               20%

@@ -1,9 +1,47 @@
 import React, { useRef, useEffect, Fragment } from "react";
 import gsap from "gsap";
 import { FaArrowLeft } from "react-icons/fa6";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ExclusiveSection = () => {
-  const categoryRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+  const categoryRef = useRef();
+  const firstRef = useRef();
+  const secondRef = useRef();
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (isDesktop) {
+      gsap.from(firstRef.current, {
+        opacity: 0,
+        y: 200,
+        scrollTrigger: {
+          trigger: firstRef.current,
+          start: "top 50%",
+          end: "bottom 50%",
+          scrub: true,
+          // markers: true,
+        },
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (isDesktop) {
+      gsap.from(secondRef.current, {
+        opacity: 0,
+        xPercent: 200,
+        scrollTrigger: {
+          trigger: secondRef.current,
+          start: "top 20%",
+          end: "bottom 10%",
+          scrub: true,
+          // markers: true,
+        },
+      });
+    }
+  }, []);
 
   useEffect(() => {
     gsap.to(categoryRef.current, {
@@ -34,9 +72,10 @@ const ExclusiveSection = () => {
         </h1>
       </div>
 
-      <div className="grid w-screen h-auto  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:px-20 lg:px-40">
+      <div className="grid w-screen h-auto overflow-hidden sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:px-20 lg:px-40">
         <div className="flex items-end justify-center p-4">
           <img
+            ref={firstRef}
             src="/giorgio-armani-main.jpeg"
             className="object-cover w-full h-full "
             alt=""
@@ -44,7 +83,7 @@ const ExclusiveSection = () => {
         </div>
 
         <div className="grid place-content-center">
-          <div className="w-full h-auto p-4">
+          <div className="w-full h-auto p-4" ref={secondRef}>
             <p className="text-gray-700">Armani Exclusives</p>
             <p
               className="text-4xl my-2 uppercase font-bold"
