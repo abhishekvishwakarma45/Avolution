@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { useCartContext } from "./components/context/CartContext";
-import FormatPrice from "./components/FormatPrice";
+import { useCartContext } from "./context/CartContext";
+import FormatPrice from "./FormatPrice";
 
 const Cart = () => {
   const { cartState, toggleCart, RemoveItem } = useCartContext();
@@ -28,7 +28,7 @@ const Cart = () => {
                   <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                     <div className="flex items-start justify-between">
                       <h2
-                        className="text-lg font-medium text-gray-900"
+                        className="text-lg font-medium uppercase text-gray-900"
                         id="slide-over-title"
                       >
                         Shopping cart
@@ -66,9 +66,9 @@ const Cart = () => {
                               Before proceeding to checkout, you must add some
                               products to your shopping cart.
                             </p>
-                            <button className="continue-shopping-btn mt-5 px-5 py-2 text-base bg-black text-white border-none cursor-pointer rounded-md transition-colors hover:bg-transparent hover:border hover:border-black hover:text-black">
+                            {/* <button className="continue-shopping-btn mt-5 px-5 py-2 text-base bg-black text-white border-none cursor-pointer rounded-md transition-colors hover:bg-transparent hover:border hover:border-black hover:text-black">
                               Continue Shopping
-                            </button>
+                            </button> */}
                           </div>
                         </div>
                       ) : (

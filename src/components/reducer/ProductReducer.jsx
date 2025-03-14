@@ -2,6 +2,11 @@ export const ProductReducer = (state, action) => {
   let temp;
   const { allProducts } = state;
   switch (action.type) {
+    case "SET_LOADING":
+      return {
+        ...state,
+        isLoading: true,
+      };
     case "SET_ALL_PRODUCTS":
       return {
         ...state,

@@ -15,10 +15,10 @@ const UltimateCollectionSection = () => {
         x: -200,
         scrollTrigger: {
           trigger: firstRef.current,
-          start: "top 40%",
-          end: "bottom 20%",
+          start: "top 70%",
+          end: "bottom 80%",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -28,9 +28,8 @@ const UltimateCollectionSection = () => {
 
         scrollTrigger: {
           trigger: secondRef.current,
-          start: "top 40%",
-
-          end: "bottom 20%",
+          start: "top 70%",
+          end: "bottom 80%",
           scrub: true,
         },
       });

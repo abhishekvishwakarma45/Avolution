@@ -13,7 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const search = params.get("search");
+    const search = params.get("value");
     if (search) {
       setSearchQuery(search);
       updateFilterValue("searchvalue", search);
@@ -22,6 +22,10 @@ const Search = () => {
 
   return (
     <Fragment>
+      <h1 className="text-center my-4 capitalize text-2xl">
+        {filteredProducts.length} products available
+      </h1>
+
       <div className="w-auto h-auto AllProducts">
         <div className=" my-10 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 sm:px-4 lg:px-20">
           {filteredProducts.map((current, index) => {

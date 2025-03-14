@@ -1,5 +1,3 @@
-import Cart from "../../Cart";
-
 export const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
@@ -24,8 +22,7 @@ export const CartReducer = (state, action) => {
             ? {
                 ...curr,
                 quantity: curr.quantity + quantity,
-                price:
-                  (curr.price / curr.quantity) * (curr.quantity + quantity),
+                price: curr.price + price * quantity,
               }
             : curr
         );
@@ -35,16 +32,16 @@ export const CartReducer = (state, action) => {
           name: singleProduct.name,
           selectedColor,
           selectedSize,
-          price,
+          price: price * quantity,
           quantity,
           image: singleProduct.image,
         };
         updatedCart = [...state.cart, cartProduct];
       }
 
-      let newPrice = state.cart.reduce((acc, curr) => {
-        let totalprice = acc + curr.price;
-        return totalprice;
+      // Calculate the total price from updatedCart
+      let newPrice = updatedCart.reduce((acc, curr) => {
+        return acc + curr.price;
       }, 0);
 
       return {

@@ -5,51 +5,58 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ExclusiveSection = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   const categoryRef = useRef();
   const firstRef = useRef();
   const secondRef = useRef();
 
   useEffect(() => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
     if (isDesktop) {
+      // Animation for first image
       gsap.from(firstRef.current, {
         opacity: 0,
         y: 200,
         scrollTrigger: {
           trigger: firstRef.current,
-          start: "top 50%",
-          end: "bottom 50%",
+          start: "top 70%",
+          end: "bottom 80%",
           scrub: true,
-          // markers: true,
         },
       });
-    }
-  }, []);
 
-  useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (isDesktop) {
+      // Animation for second image
       gsap.from(secondRef.current, {
         opacity: 0,
         xPercent: 200,
         scrollTrigger: {
-          trigger: secondRef.current,
-          start: "top 20%",
-          end: "bottom 10%",
+          trigger: ".container",
+          start: "top 70%",
+          end: "bottom 80%",
           scrub: true,
-          // markers: true,
+        },
+      });
+
+      // Animating the text
+      gsap.to(categoryRef.current, {
+        x: "-100%",
+        duration: 100,
+        repeat: -1,
+        ease: "linear",
+      });
+
+      gsap.from(".sm-divs", {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".container",
+          start: "top 70%",
+          end: "bottom 80%",
+          scrub: true,
+          ease: "linear",
         },
       });
     }
-  }, []);
-
-  useEffect(() => {
-    gsap.to(categoryRef.current, {
-      x: "-100%",
-      duration: 100,
-      repeat: -1,
-      ease: "linear",
-    });
   }, []);
 
   return (
@@ -72,13 +79,13 @@ const ExclusiveSection = () => {
         </h1>
       </div>
 
-      <div className="grid w-screen h-auto overflow-hidden sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:px-20 lg:px-40">
+      <div className="grid w-screen h-auto overflow-hidden container sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:px-20 lg:px-40">
         <div className="flex items-end justify-center p-4">
           <img
             ref={firstRef}
             src="/giorgio-armani-main.jpeg"
-            className="object-cover w-full h-full "
-            alt=""
+            className="object-cover w-full h-full"
+            alt="Giorgio Armani Collection"
           />
         </div>
 
@@ -98,13 +105,13 @@ const ExclusiveSection = () => {
           <hr />
           <div className="grid grid-cols-3 gap-4 p-2 my-4 place-items-center">
             <div
-              className="w-full h-auto rounded-xs "
+              className="w-full h-auto rounded-xs"
               style={{ boxShadow: " rgba(0, 0, 0, 0.3) 0px 2px 7px" }}
             >
               <img
                 src="/giorgio-armani-watch.jpeg"
-                alt=""
-                className="object-contain w-full h-full"
+                alt="Armani Watch"
+                className="object-contain sm-divs w-full h-full"
               />
             </div>
             <div
@@ -113,8 +120,8 @@ const ExclusiveSection = () => {
             >
               <img
                 src="/giorgio-armani-perfume.jpeg"
-                alt=""
-                className="object-contain w-full h-full"
+                alt="Armani Perfume"
+                className="object-contain sm-divs w-full h-full"
               />
             </div>
             <div
@@ -123,8 +130,8 @@ const ExclusiveSection = () => {
             >
               <img
                 src="/giorgio-armani-bag.jpeg"
-                alt=""
-                className="object-contain w-full h-full"
+                alt="Armani Bag"
+                className="object-contain sm-divs w-full h-full"
               />
             </div>
           </div>

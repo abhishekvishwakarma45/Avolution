@@ -24,22 +24,22 @@ const AllProducts = () => {
   const { filteredProducts, filter } = FilterState;
   const { price } = filter;
 
-  useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  // useEffect(() => {
+  //   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-    if (isDesktop) {
-      gsap.to(filterPin.current, {
-        scrollTrigger: {
-          trigger: filterPin.current,
-          pin: true,
-          pinSpacing: false,
-          scrub: 2,
-          start: "top top",
-          end: "bottom end ",
-        },
-      });
-    }
-  }, []);
+  //   if (isDesktop) {
+  //     gsap.to(filterPin.current, {
+  //       scrollTrigger: {
+  //         trigger: filterPin.current,
+  //         pin: true,
+  //         pinSpacing: false,
+  //         scrub: 2,
+  //         start: "top top",
+  //         end: "bottom end ",
+  //       },
+  //     });
+  //   }
+  // }, []);
 
   useEffect(() => {
     getSortValue(sortvalue);

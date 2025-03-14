@@ -11,6 +11,7 @@ import { ProductReducer } from "../reducer/ProductReducer";
 
 let ProductContext = createContext();
 const initialState = {
+  isLoading: false,
   allProducts: [],
   featuredProducts: [],
   singleProduct: {},
@@ -42,6 +43,7 @@ export const ProductContextProvider = ({ children }) => {
   }, [state.allProducts]);
 
   const getProductById = async (id) => {
+    dispatch({ type: "SET_LOADING" });
     let res = await axios.get("/Product.json");
     let allProducts = res.data;
     let SingleProduct = allProducts.find((curr) => {

@@ -9,21 +9,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useParams } from "react-router";
 import useProductContext from "./context/ProductContext";
 import FormatPrice from "./FormatPrice";
-
 import { useCartContext } from "./context/CartContext";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 
 const ProductPage = () => {
   const { getProductById, state } = useProductContext();
-  const { singleProduct } = state;
+  const { isloading, singleProduct } = state;
 
   const { cartState, addToCart } = useCartContext();
+  const [like, setLike] = useState(false);
 
   const { id } = useParams();
+
   useEffect(() => {
     if (id) {
-      getProductById(id);
+      if (!singleProduct || singleProduct.id !== id) {
+        getProductById(id);
+      }
     }
-  }, [id, getProductById]);
+  }, [id, getProductById, singleProduct]);
 
   const {
     name,
@@ -35,44 +40,49 @@ const ProductPage = () => {
     image,
     color,
     size,
-  } = singleProduct;
+  } = singleProduct || {};
 
   const [selectedColor, setSelectedColor] = useState(false);
   const [selectedSize, setSelectedSize] = useState(false);
-
   const [quantity, setQuantity] = useState(1);
+
   gsap.registerPlugin(ScrollTrigger);
 
   const ImageRef = useRef(null);
 
-  // useEffect(() => {
-  //   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  if (isloading || !singleProduct) {
+    return (
+      <div className="flex items-center justify-center w-full h-screen">
+        <p className="text-lg font-bold">Loading...</p>
+      </div>
+    );
+  }
 
-  //   if (isDesktop) {
-  //     gsap.to(ImageRef.current, {
-  //       scrollTrigger: {
-  //         trigger: ImageRef.current,
-  //         pin: true,
-  //         pinSpacing: false,
-  //         scrub: 2,
+  if (!image) {
+    return (
+      <div className="flex items-center justify-center w-full h-screen">
+        <p className="text-lg font-bold">
+          Product data is missing or not loaded.
+        </p>
+      </div>
+    );
+  }
 
-  //         start: "top top",
-  //         end: "+=100%",
-  //       },
-  //     });
-  //   }
-  //   return () => {
-  //     if (ScrollTrigger.getAll()) {
-  //       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //     }
-  //   };
-  // }, []);
+  console.log(like);
 
   return (
     <Fragment>
       <div className="grid w-screen h-auto grid-cols-1 px-4 py-5 md:px-8 lg:grid-cols-2 lg:px-40">
         <div ref={ImageRef} className="w-auto h-auto p-5">
-          <img src={image} alt="" className="object-cover w-full h-auto" />
+          {image ? (
+            <img
+              src={image}
+              alt={name || "Product Image"}
+              className="object-cover w-full h-auto"
+            />
+          ) : (
+            <p className="text-center text-gray-500">No image available</p>
+          )}
         </div>
 
         <div className="px-4 py-2 capitalize description-container sm: lg:py-5">

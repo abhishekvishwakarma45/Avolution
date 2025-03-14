@@ -18,7 +18,7 @@ const Header = () => {
     e.preventDefault();
     const searchValue = e.target.search.value.trim();
     if (searchValue) {
-      navigate(`/search?search=${searchValue}`);
+      navigate(`/search?value=${searchValue}`);
     }
   };
 
@@ -53,20 +53,19 @@ const Header = () => {
         <div className="flex items-center justify-end w-auto h-full pr-4 space-x-4 overflow-visible lg:flex header-right-container">
           <form
             onSubmit={handleSearch}
-            className="flex items-center justify-center w-full py-4 rounded-xs"
+            className="flex items-center justify-center w-full py-4 rounded-xs "
           >
-            <input
-              type="text"
-              name="search"
-              className="w-auto h-auto px-3 py-2 outline-none text-gray-700 border border-r-0 border-gray-500"
-              placeholder="Search anything..."
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 text-2xl border border-l-0 bg-amber-300 border-gray-500"
-            >
-              <IoIosSearch />
-            </button>
+            <div className="border flex items-center justify-center">
+              <input
+                type="text"
+                name="search"
+                className="w-auto h-auto px-3 py-2 outline-none text-gray-700 "
+                placeholder="Search anything..."
+              />
+              <button type="submit" className="px-4 py-2 text-2xl">
+                <IoIosSearch />
+              </button>
+            </div>
           </form>
 
           <div className="hidden m-3 lg:inline-block">
