@@ -7,6 +7,12 @@ export const ProductReducer = (state, action) => {
         ...state,
         isLoading: true,
       };
+
+    case "STOP_LOADING":
+      return {
+        ...state,
+        isLoading: false,
+      };
     case "SET_ALL_PRODUCTS":
       return {
         ...state,

@@ -50,6 +50,7 @@ export const ProductContextProvider = ({ children }) => {
       return curr.id === id;
     });
     dispatch({ type: "SET_SINGLE_PRODUCT", payload: SingleProduct });
+    dispatch({ type: "STOP_LOADING" });
   };
 
   return (

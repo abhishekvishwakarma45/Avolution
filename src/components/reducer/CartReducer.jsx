@@ -39,7 +39,6 @@ export const CartReducer = (state, action) => {
         updatedCart = [...state.cart, cartProduct];
       }
 
-      // Calculate the total price from updatedCart
       let newPrice = updatedCart.reduce((acc, curr) => {
         return acc + curr.price;
       }, 0);

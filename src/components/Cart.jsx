@@ -66,9 +66,6 @@ const Cart = () => {
                               Before proceeding to checkout, you must add some
                               products to your shopping cart.
                             </p>
-                            {/* <button className="continue-shopping-btn mt-5 px-5 py-2 text-base bg-black text-white border-none cursor-pointer rounded-md transition-colors hover:bg-transparent hover:border hover:border-black hover:text-black">
-                              Continue Shopping
-                            </button> */}
                           </div>
                         </div>
                       ) : (
@@ -100,7 +97,14 @@ const Cart = () => {
                                         </div>
                                         <p className="mt-1 text-sm text-gray-500">
                                           <span>
-                                            Color: {curr.selectedColor}
+                                            Color:{" "}
+                                            <span
+                                              className="px-3 py-0.5 mx-1  rounded-full"
+                                              style={{
+                                                backgroundColor:
+                                                  curr.selectedColor,
+                                              }}
+                                            ></span>
                                           </span>
                                           <br />
                                           <span>Size:{curr.selectedSize}</span>

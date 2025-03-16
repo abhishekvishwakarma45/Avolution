@@ -5,7 +5,7 @@ import FeaturedSection from "./components/FeaturedSection";
 import UltimateCollectionSection from "./components/UltimateCollectionSection";
 
 import ExclusiveSection from "./components/ExclusiveSection";
-
+import Review from "./components/Review";
 const Home = () => {
   return (
     <Fragment>
@@ -13,6 +13,7 @@ const Home = () => {
       <FeaturedSection />
       <UltimateCollectionSection />
       <ExclusiveSection />
+      <Review />
     </Fragment>
   );
 };

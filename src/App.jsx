@@ -7,6 +7,7 @@ import AllProducts from "./components/AllProducts";
 import { Footer } from "./components/Footer";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
+
 const App = () => {
   return (
     <Router>

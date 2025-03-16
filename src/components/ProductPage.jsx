@@ -15,7 +15,7 @@ import { FaHeart } from "react-icons/fa6";
 
 const ProductPage = () => {
   const { getProductById, state } = useProductContext();
-  const { isloading, singleProduct } = state;
+  const { isLoading, singleProduct } = state;
 
   const { cartState, addToCart } = useCartContext();
   const [like, setLike] = useState(false);
@@ -50,7 +50,7 @@ const ProductPage = () => {
 
   const ImageRef = useRef(null);
 
-  if (isloading || !singleProduct) {
+  if (isLoading || !singleProduct) {
     return (
       <div className="flex items-center justify-center w-full h-screen">
         <p className="text-lg font-bold">Loading...</p>
@@ -67,8 +67,6 @@ const ProductPage = () => {
       </div>
     );
   }
-
-  console.log(like);
 
   return (
     <Fragment>
