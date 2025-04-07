@@ -14,7 +14,6 @@ const ExclusiveSection = () => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
     if (isDesktop) {
-      // Animation for first image
       gsap.from(firstRef.current, {
         opacity: 0,
         y: 200,
@@ -26,10 +25,9 @@ const ExclusiveSection = () => {
         },
       });
 
-      // Animation for second image
       gsap.from(secondRef.current, {
         opacity: 0,
-        xPercent: 200,
+        yPercent: -200,
         scrollTrigger: {
           trigger: ".container",
           start: "top 70%",
@@ -38,7 +36,6 @@ const ExclusiveSection = () => {
         },
       });
 
-      // Animating the text
       gsap.to(categoryRef.current, {
         x: "-100%",
         duration: 100,
@@ -90,7 +87,7 @@ const ExclusiveSection = () => {
         </div>
 
         <div className="grid place-content-center">
-          <div className="w-full h-auto p-4" ref={secondRef}>
+          <div className="w-full h-auto p-4 overflow-hidden" ref={secondRef}>
             <p className="text-gray-700">Armani Exclusives</p>
             <p
               className="text-4xl my-2 uppercase font-bold"

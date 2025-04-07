@@ -12,7 +12,7 @@ const Header = () => {
   const { cartState, toggleCart } = useCartContext();
   const { cart } = cartState;
   const { updateFilterValue } = useFilterContext();
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ const Header = () => {
           </NavLink>
         </div>
 
-        <div className="flex justify-center items-center w-full">
+        <div className="flex justify-left items-center w-full lg:justify-center">
           <NavLink to="/">
             <img
               className="object-contain h-16 lg:h-20"
@@ -53,7 +53,7 @@ const Header = () => {
         <div className="flex items-center justify-end w-auto h-full pr-4 space-x-4 overflow-visible lg:flex header-right-container">
           <form
             onSubmit={handleSearch}
-            className="flex items-center justify-center w-full py-4 rounded-xs "
+            className=" items-center hidden justify-center w-full py-4 rounded-xs lg:flex "
           >
             <div className="border flex items-center justify-center">
               <input

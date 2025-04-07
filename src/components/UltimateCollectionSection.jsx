@@ -25,7 +25,6 @@ const UltimateCollectionSection = () => {
       gsap.from(secondRef.current, {
         opacity: 0,
         x: 200,
-
         scrollTrigger: {
           trigger: secondRef.current,
           start: "top 70%",
@@ -37,10 +36,10 @@ const UltimateCollectionSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto overflow-hidden  px-4 sm:px-10 md:px-20 lg:px-40">
+    <section className="w-full  my-4 h-auto overflow-hidden px-4 sm:px-10 md:px-20 lg:px-40">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 place-items-center">
         <div className="w-full h-auto" ref={firstRef}>
-          <div className="relative w-full h-[50vh]">
+          <div className="relative overflow-hidden w-full h-[50vh]">
             <img
               src="cropped.jpg"
               alt="Ultimate Collection"
@@ -70,7 +69,7 @@ const UltimateCollectionSection = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

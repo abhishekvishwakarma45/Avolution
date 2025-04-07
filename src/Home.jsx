@@ -6,12 +6,14 @@ import UltimateCollectionSection from "./components/UltimateCollectionSection";
 
 import ExclusiveSection from "./components/ExclusiveSection";
 import Review from "./components/Review";
+import BrandCarousel from "./components/Brands";
 const Home = () => {
   return (
     <Fragment>
       <HeroSection />
       <FeaturedSection />
       <UltimateCollectionSection />
+      {/* <BrandCarousel /> */}
       <ExclusiveSection />
       <Review />
     </Fragment>

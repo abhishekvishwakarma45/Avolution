@@ -18,17 +18,14 @@ const ProductPage = () => {
   const { isLoading, singleProduct } = state;
 
   const { cartState, addToCart } = useCartContext();
-  const [like, setLike] = useState(false);
 
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
-      if (!singleProduct || singleProduct.id !== id) {
-        getProductById(id);
-      }
-    }
-  }, [id, getProductById, singleProduct]);
+    getProductById(id);
+  }, [id]);
+
+  console.log(singleProduct);
 
   const {
     name,
@@ -49,24 +46,6 @@ const ProductPage = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const ImageRef = useRef(null);
-
-  if (isLoading || !singleProduct) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <p className="text-lg font-bold">Loading...</p>
-      </div>
-    );
-  }
-
-  if (!image) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <p className="text-lg font-bold">
-          Product data is missing or not loaded.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <Fragment>

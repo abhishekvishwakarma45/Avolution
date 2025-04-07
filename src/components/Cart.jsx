@@ -97,9 +97,9 @@ const Cart = () => {
                                         </div>
                                         <p className="mt-1 text-sm text-gray-500">
                                           <span>
-                                            Color:{" "}
+                                            Color:
                                             <span
-                                              className="px-3 py-0.5 mx-1  rounded-full"
+                                              className="px-3 py-0.5 mx-1 rounded-full"
                                               style={{
                                                 backgroundColor:
                                                   curr.selectedColor,

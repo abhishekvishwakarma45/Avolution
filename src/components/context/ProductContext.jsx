@@ -8,6 +8,7 @@ import {
 import React from "react";
 import axios from "axios";
 import { ProductReducer } from "../reducer/ProductReducer";
+import { SiPetsathome } from "react-icons/si";
 
 let ProductContext = createContext();
 const initialState = {
@@ -43,15 +44,15 @@ export const ProductContextProvider = ({ children }) => {
   }, [state.allProducts]);
 
   const getProductById = async (id) => {
-    dispatch({ type: "SET_LOADING" });
     let res = await axios.get("/Product.json");
     let allProducts = res.data;
     let SingleProduct = allProducts.find((curr) => {
       return curr.id === id;
     });
     dispatch({ type: "SET_SINGLE_PRODUCT", payload: SingleProduct });
-    dispatch({ type: "STOP_LOADING" });
   };
+
+  console.log(initialState.singleProduct);
 
   return (
     <ProductContext.Provider value={{ state, getProductById }}>
