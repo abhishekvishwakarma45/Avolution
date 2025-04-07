@@ -4,15 +4,18 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
 import { RiMenu3Fill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa6";
-
 import { useCartContext } from "./context/CartContext";
 import { useFilterContext } from "./context/FilterContext";
-
+import { useState } from "react";
+import useProductContext from "./context/ProductContext";
+import Slidebar from "./Slidebar";
 const Header = () => {
   const { cartState, toggleCart } = useCartContext();
   const { cart } = cartState;
   const { updateFilterValue } = useFilterContext();
   const navigate = useNavigate();
+
+  const { toggleSidebar, state } = useProductContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -44,7 +47,7 @@ const Header = () => {
           <NavLink to="/">
             <img
               className="object-contain h-16 lg:h-20"
-              src="logo-removebg-preview.png"
+              src="https://res.cloudinary.com/dqktbs8zx/image/upload/v1744024894/logo-removebg-preview_ctd0jf.png"
               alt="Logo"
             />
           </NavLink>
@@ -90,7 +93,10 @@ const Header = () => {
 
           <div className="m-0">
             <NavLink>
-              <button className="inline-block p-2 text-2xl font-bold lg:hidden">
+              <button
+                onClick={() => toggleSidebar(true)}
+                className="inline-block p-2 text-2xl font-bold lg:hidden"
+              >
                 <RiMenu3Fill />
               </button>
             </NavLink>

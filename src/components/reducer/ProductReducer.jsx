@@ -33,6 +33,12 @@ export const ProductReducer = (state, action) => {
         singleProduct: action.payload,
       };
 
+    case "TOGGLE_SIDEBAR": {
+      return {
+        ...state,
+        isSidebarOpen: action.payload,
+      };
+    }
     default:
       return state;
   }

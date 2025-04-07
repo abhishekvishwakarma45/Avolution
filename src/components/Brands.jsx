@@ -26,12 +26,12 @@ export default function BrandCarousel() {
         </div>
         <Swiper
           pagination={{
-            dynamicBullets: true, // Dynamic bullets (to show a smaller version of the slide)
-            clickable: true, // Make bullets clickable
+            dynamicBullets: true,
+            clickable: true,
           }}
           autoplay={{
-            delay: 2500, // Set autoplay delay to 2.5 seconds
-            disableOnInteraction: false, // Continue autoplay after interaction
+            delay: 2500,
+            disableOnInteraction: false,
           }}
           loop={true}
           spaceBetween={30}
@@ -56,8 +56,8 @@ export default function BrandCarousel() {
                     src={brand.image}
                     style={{
                       width: "auto",
-                      height: "100%", // Ensures the image fills the container's height
-                      maxWidth: "100%", // Ensures images don’t overflow their container
+                      height: "100%",
+                      maxWidth: "100%",
                     }}
                   />
                 </figure>

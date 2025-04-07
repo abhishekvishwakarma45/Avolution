@@ -5,6 +5,7 @@ import {
   useEffect,
   useReducer,
 } from "react";
+
 import React from "react";
 import axios from "axios";
 import { ProductReducer } from "../reducer/ProductReducer";
@@ -16,6 +17,7 @@ const initialState = {
   allProducts: [],
   featuredProducts: [],
   singleProduct: {},
+  isSidebarOpen: false,
 };
 
 export const ProductContextProvider = ({ children }) => {
@@ -54,8 +56,11 @@ export const ProductContextProvider = ({ children }) => {
     dispatch({ type: "SET_SINGLE_PRODUCT", payload: SingleProduct });
   };
 
+  const toggleSidebar = (value) => {
+    dispatch({ type: "TOGGLE_SIDEBAR", payload: value });
+  };
   return (
-    <ProductContext.Provider value={{ state, getProductById }}>
+    <ProductContext.Provider value={{ state, getProductById, toggleSidebar }}>
       {children}
     </ProductContext.Provider>
   );
