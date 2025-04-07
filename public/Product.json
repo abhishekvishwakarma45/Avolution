@@ -10,11 +10,11 @@
     "color": ["#F4A2B5", "#414141", "#020202", "#F3EFEC"],
     "size": ["S", "M", "L", "XL"],
     "category": "male",
-    "image": "product_img/hm-tshirt.png"
+    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "2",
-    "name": "Black Denim Jacket",
+    "name": "Jeans",
     "price": 59.99,
     "brand": "Levi's",
     "description": "Stylish black denim jacket with a vintage feel. Ideal for layering over any outfit.",
@@ -23,11 +23,11 @@
     "color": ["#1F0955", "#F3EFEC", "#002495", "#FAFAFA"],
     "size": ["M", "L", "XL"],
     "category": "male",
-    "image": "product_img/relaxedjeans.jpg"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/relaxedjeans_winzf2.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "3",
-    "name": "Slim Fit Blue Jeans",
+    "name": "Men Shirt",
     "price": 39.99,
     "brand": "Diesel",
     "description": "Comfortable slim fit jeans made from stretchable denim that moves with you.",
@@ -36,11 +36,11 @@
     "color": ["#414141", "#020202", "#FDD6B1", "#0493CD"],
     "size": ["30", "32", "34", "36"],
     "category": "male",
-    "image": "product_img/shirt.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/shirt_t1k4ht.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "4",
-    "name": "Casual Hoodie",
+    "name": "sweat Shirt",
     "price": 49.99,
     "brand": "Adidas",
     "description": "Soft, cozy hoodie perfect for casual outings or lounging at home.",
@@ -49,11 +49,11 @@
     "color": ["#F4A2B5", "#002495", "#FDD6B1", "#FAFAFA"],
     "size": ["S", "M", "L", "XL"],
     "category": "male",
-    "image": "product_img/cargo.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt_ynlgqx.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif"]
   },
   {
     "id": "5",
-    "name": "V-Neck T-Shirt",
+    "name": "Women Jacket",
     "price": 22.99,
     "brand": "Puma",
     "description": "A soft v-neck t-shirt that adds a touch of elegance to your everyday wardrobe.",
@@ -62,11 +62,11 @@
     "color": ["#F3EFEC", "#002495", "#FDD6B1", "#0493CD"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "product_img/sweatshirt.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "6",
-    "name": "Leather Jacket",
+    "name": "Men T-shirt",
     "price": 129.99,
     "brand": "Balenciaga",
     "description": "A premium leather jacket offering a sleek look and long-lasting durability.",
@@ -75,11 +75,11 @@
     "color": ["#414141", "#1F0955", "#002495", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "product_img/gaon.png"
+    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/hm-tshirt_vz1pt1.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "7",
-    "name": "High-Waisted Jeans",
+    "name": "Baggy Jeans",
     "price": 45.99,
     "brand": "Tommy Hilfiger",
     "description": "Flattering high-waisted jeans with a perfect fit and a sleek finish.",
@@ -88,11 +88,11 @@
     "color": ["#FAFAFA", "#0493CD", "#414141", "#FDD6B1"],
     "size": ["28", "30", "32"],
     "category": "female",
-    "image": "product_img/jacket.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cargo_tghgnk.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "8",
-    "name": "Graphic T-Shirt",
+    "name": "Cap",
     "price": 27.99,
     "brand": "Gucci",
     "description": "A fun graphic t-shirt that expresses your unique style and personality.",
@@ -101,11 +101,11 @@
     "color": ["#020202", "#F4A2B5", "#002495", "#1F0955"],
     "size": ["S", "M", "L", "XL"],
     "category": "female",
-    "image": "product_img/sweatshirt2.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cap_ms5ff9.jpg","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "11",
-    "name": "Bomber Jacket",
+    "name": "Men Shoe",
     "price": 79.99,
     "brand": "North Face",
     "description": "A stylish bomber jacket with a smooth finish, perfect for layering over any outfit.",
@@ -114,7 +114,7 @@
     "color": ["#414141", "#002495", "#FAFAFA", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "male",
-    "image": "product_img/cap.jpg"
+    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/shoes_smtno7.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   },
   {
     "id": "12",
@@ -127,6 +127,6 @@
     "color": ["#F4A2B5", "#1F0955", "#F3EFEC", "#020202"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": "product_img/shoes.png"
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/gaon_y1lx1d.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
   }
 ]

@@ -12,6 +12,14 @@ import FormatPrice from "./FormatPrice";
 import { useCartContext } from "./context/CartContext";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import axios from "axios";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper/modules";
 
 const ProductPage = () => {
   const { getProductById, state } = useProductContext();
@@ -25,16 +33,14 @@ const ProductPage = () => {
     getProductById(id);
   }, [id]);
 
-  console.log(singleProduct);
-
   const {
     name,
     brand,
     price,
+    image,
     description,
     stock,
     category,
-    image,
     color,
     size,
   } = singleProduct || {};
@@ -51,12 +57,24 @@ const ProductPage = () => {
     <Fragment>
       <div className="grid w-screen h-auto grid-cols-1 px-4 py-5 md:px-8 lg:grid-cols-2 lg:px-40">
         <div ref={ImageRef} className="w-auto h-auto p-5">
-          {image ? (
-            <img
-              src={image}
-              alt={name || "Product Image"}
-              className="object-cover w-full h-auto"
-            />
+          {image && image.length > 0 ? (
+            <Swiper
+              pagination={{
+                dynamicBullets: true,
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {image.map((curr, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={curr}
+                    alt={name || "Product Image"}
+                    className="object-cover w-full h-auto"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           ) : (
             <p className="text-center text-gray-500">No image available</p>
           )}

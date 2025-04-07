@@ -44,15 +44,15 @@ export const ProductContextProvider = ({ children }) => {
   }, [state.allProducts]);
 
   const getProductById = async (id) => {
+    dispatch({ type: "SET_LOADING" });
     let res = await axios.get("/Product.json");
     let allProducts = res.data;
     let SingleProduct = allProducts.find((curr) => {
       return curr.id === id;
     });
+    dispatch({ type: "STOP_LOADING" });
     dispatch({ type: "SET_SINGLE_PRODUCT", payload: SingleProduct });
   };
-
-  console.log(initialState.singleProduct);
 
   return (
     <ProductContext.Provider value={{ state, getProductById }}>

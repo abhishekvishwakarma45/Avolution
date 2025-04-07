@@ -38,7 +38,7 @@ const Product = ({ current }) => {
         >
           <div className="w-auto image-container" style={{ height: "35vh" }}>
             <img
-              src={image}
+              src={image[0]}
               alt=""
               className="object-cover w-full h-full rounded-xs"
               loading="lazy"

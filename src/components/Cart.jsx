@@ -83,7 +83,7 @@ const Cart = () => {
                                     <li className="flex py-6">
                                       <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                                         <img
-                                          src={curr.image}
+                                          src={curr.image[0]}
                                           alt={curr.name}
                                           className="size-full object-cover"
                                         />
@@ -149,7 +149,7 @@ const Cart = () => {
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
-                        or{" "}
+                        or <br />
                         <button
                           type="button"
                           className="font-medium text-indigo-600 hover:text-indigo-500"
