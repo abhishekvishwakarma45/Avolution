@@ -14,7 +14,7 @@ const Home = () => {
       <HeroSection />
       <FeaturedSection />
       <UltimateCollectionSection />
-      <BrandCarousel />
+      {/* <BrandCarousel /> */}
       <ExclusiveSection />
       <Review />
       <Slidebar />

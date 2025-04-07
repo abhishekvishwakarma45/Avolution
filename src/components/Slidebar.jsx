@@ -7,6 +7,7 @@ import { BiSupport } from "react-icons/bi";
 import { HiMiniUserGroup } from "react-icons/hi2";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { AiOutlineInbox } from "react-icons/ai";
+import { BiHomeSmile } from "react-icons/bi";
 
 const Slidebar = () => {
   const { state, toggleSidebar } = useProductContext();
@@ -23,7 +24,7 @@ const Slidebar = () => {
       ></div>
 
       <div
-        className={`fixed inset-0 z-30 transition-transform duration-300 ${
+        className={`fixed inset-0 z-50 transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -46,50 +47,60 @@ const Slidebar = () => {
           </div>
           <hr />
           <nav className="flex flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
-            <div
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <HiHome />
-              <div className="grid mr-4 place-items-center"></div>
-              Home
-            </div>
+            <a href="/home">
+              <div
+                role="button"
+                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+              >
+                <BiHomeSmile />
+                <div className="grid mr-4 place-items-center"></div>
+                Home
+              </div>
+            </a>
 
-            <div
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <AiOutlineInbox />
-              <div className="grid mr-4 place-items-center"></div>
-              Products
-            </div>
-            <div
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <HiOutlineShoppingBag />
-              <div className="grid mr-4 place-items-center"></div>
-              Cart
-            </div>
-            <div
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <IoInformationCircleOutline />
-              <div className="grid mr-4 place-items-center"></div>
-              About Us
-            </div>
-            <div
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <HiMiniUserGroup />
-              <div className="grid mr-4 place-items-center"></div>
-              Contact Us
-            </div>
+            <a href="/allproducts">
+              <div
+                role="button"
+                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+              >
+                <AiOutlineInbox />
+                <div className="grid mr-4 place-items-center"></div>
+                Products
+              </div>
+            </a>
+            <a href="/cart">
+              <div
+                role="button"
+                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+              >
+                <HiOutlineShoppingBag />
+                <div className="grid mr-4 place-items-center"></div>
+                Cart
+              </div>
+            </a>
+            <a href="/about">
+              <div
+                role="button"
+                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+              >
+                <IoInformationCircleOutline />
+                <div className="grid mr-4 place-items-center"></div>
+                About Us
+              </div>
+            </a>
+            <a href="/contact">
+              <div
+                role="button"
+                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+              >
+                <HiMiniUserGroup />
+                <div className="grid mr-4 place-items-center"></div>
+                Get In Touch
+              </div>
+            </a>
           </nav>
 
-          <div className="mt-auto border-t-1 p-4 text-center text-sm text-gray-500">
+          <div className="mt-auto border-t-1 p-2 text-center text-sm text-gray-500">
             <p>
               &#169; {new Date().getFullYear()} Developed by <br /> Abhishek
               Vishwakarma
