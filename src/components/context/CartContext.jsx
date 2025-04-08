@@ -54,7 +54,9 @@ export default function CartContextProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("cartProduct", JSON.stringify(cartState.cart));
-    localStorage.setItem("totalprice", JSON.stringify(cartState.totalprice));
+    if (cartState.cart.length != 0) {
+      localStorage.setItem("totalprice", JSON.stringify(cartState.totalprice));
+    }
   }, [cartState.cart, cartState.totalprice]);
 
   const toggleCart = () => {

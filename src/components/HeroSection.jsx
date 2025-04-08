@@ -1,5 +1,6 @@
 import React, { Fragment, useRef } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { NavLink } from "react-router";
 
 const HeroSection = () => {
   return (
@@ -23,12 +24,14 @@ const HeroSection = () => {
               your true style today and let your authentic self shine like never
               before.
             </p>
-            <button className="flex items-center justify-center pt-4 pb-4 pl-8 pr-8 mt-2 text-white bg-black rounded-ee-3xl rounded-tl-3xl">
-              Shop now
-              <span className="ml-2">
-                <FaArrowRightLong />
-              </span>
-            </button>
+            <NavLink to="/allproducts">
+              <button className="flex items-center justify-center pt-4 pb-4 pl-8 pr-8 mt-2 text-white bg-black rounded-ee-3xl rounded-tl-3xl">
+                Shop now
+                <span className="ml-2">
+                  <FaArrowRightLong />
+                </span>
+              </button>
+            </NavLink>
           </div>
         </div>
 

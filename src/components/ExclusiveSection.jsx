@@ -2,7 +2,7 @@ import React, { useRef, useEffect, Fragment } from "react";
 import gsap from "gsap";
 import { FaArrowLeft } from "react-icons/fa6";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { NavLink } from "react-router";
 const ExclusiveSection = () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -95,9 +95,11 @@ const ExclusiveSection = () => {
             >
               Timeless Elegance in Fashion, Fragrance, and Watches
             </p>
-            <button className="flex items-center justify-center pt-4 pb-4 pl-8 pr-8 my-4 text-white bg-black rounded-xs ">
-              Shop now
-            </button>
+            <NavLink to="/allproducts">
+              <button className="flex items-center justify-center pt-4 pb-4 pl-8 pr-8 my-4 text-white bg-black rounded-xs ">
+                Shop now
+              </button>
+            </NavLink>
           </div>
           <hr />
           <div className="grid grid-cols-3 gap-4 p-2 my-4 place-items-center">

@@ -34,7 +34,7 @@ const Product = ({ current }) => {
       <NavLink to={`/product/${id}`}>
         <div
           ref={productRef}
-          className="w-full h-auto p-2 m-2"
+          className="w-full h-auto p-2"
           style={{ boxShadow: "0 2px 7px rgba(0, 0, 0, 0.3)" }}
         >
           <div className="w-auto image-container" style={{ height: "35vh" }}>

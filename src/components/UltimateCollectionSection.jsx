@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { NavLink } from "react-router";
 const UltimateCollectionSection = () => {
   gsap.registerPlugin(ScrollTrigger);
   const firstRef = useRef();
@@ -54,9 +54,11 @@ const UltimateCollectionSection = () => {
             >
               The Ultimate Collection – Perfect for Every Day.
             </h1>
-            <button className="mt-6 px-8 py-2 bg-black text-white uppercase font-bold rounded-xs transition-all hover:bg-gray-800">
-              Explore Now
-            </button>
+            <NavLink to="/allproducts">
+              <button className="mt-6 px-8 py-2 bg-black text-white uppercase font-bold rounded-xs transition-all hover:bg-gray-800">
+                Explore Now
+              </button>
+            </NavLink>
           </div>
         </div>
         <div className="w-full h-full">

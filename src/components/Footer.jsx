@@ -12,15 +12,15 @@ export const Footer = () => {
     <Fragment>
       <div className="footer-container mt-5 w-full bg-black text-white py-8 sm:py-12 md:py-16 px-6 sm:px-12 lg:px-20">
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="text-center sm:text-left p-4">
-            <p className="font-semibold text-xl capitalize mb-4">Av Store</p>
+          <div className="text-left p-4">
+            <p className="font-semibold text-xl capitalize mb-4">AVolution</p>
             <p className="text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Where the future of eCommerce unfolds—blending innovation and
+              growth for a transformative shopping experience.
             </p>
           </div>
 
-          <div className="text-center sm:text-left p-4">
+          <div className="text-left  sm:text-left p-4">
             <p className="font-semibold text-xl capitalize mb-4">Quick Links</p>
             <ul className="space-y-2">
               <li>
@@ -46,24 +46,24 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div className="text-center sm:text-left p-4">
+          <div className="text-left  p-4">
             <p className="font-semibold text-xl capitalize mb-4">
               Get in Touch
             </p>
-            <p className="flex justify-center sm:justify-start items-center space-x-2 text-sm mb-2">
+            <p className="flex justify-start items-center space-x-2 text-sm mb-2">
               <MdCall className="text-lg" /> <a href="">(+91) 7385097588</a>
             </p>
-            <p className="flex justify-center sm:justify-start items-center space-x-2 text-sm">
+            <p className="flex justify-start items-center space-x-2 text-sm">
               <MdMailOutline className="text-lg" />{" "}
               <a href="">abhishekv0045@gmail.com</a>
             </p>
           </div>
 
-          <div className="text-center sm:text-left p-4">
+          <div className="text-left p-4">
             <p className="font-semibold text-xl capitalize mb-4">
               Subscribe to Get More Updates
             </p>
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+            <div className="flex flex-col sm:flex-row items-start lg:items-center space-y-2 sm:space-y-0 sm:space-x-2">
               <input
                 type="email"
                 placeholder="Enter Your E-mail"

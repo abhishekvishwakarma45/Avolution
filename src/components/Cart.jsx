@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { useCartContext } from "./context/CartContext";
 import FormatPrice from "./FormatPrice";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { NavLink } from "react-router";
 
 const Cart = () => {
   const { cartState, toggleCart, RemoveItem } = useCartContext();
@@ -31,7 +33,7 @@ const Cart = () => {
                         className="text-lg font-medium uppercase text-gray-900"
                         id="slide-over-title"
                       >
-                        Shopping cart
+                        Shopping Cart
                       </h2>
                       <button
                         type="button"
@@ -76,7 +78,7 @@ const Cart = () => {
                           >
                             {Array.isArray(cart)
                               ? cart.map((curr, idx) => (
-                                  <a
+                                  <NavLink
                                     key={idx}
                                     href={`/product/${curr.id.slice(0, 1)}`}
                                   >
@@ -123,7 +125,7 @@ const Cart = () => {
                                         </div>
                                       </div>
                                     </li>
-                                  </a>
+                                  </NavLink>
                                 ))
                               : []}
                           </ul>
@@ -137,7 +139,7 @@ const Cart = () => {
                       <FormatPrice price={totalprice} />
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">
-                      Shipping and taxes calculated at checkout.
+                      Shipping and taxes will be applied during checkout.
                     </p>
                     <div className="mt-6">
                       <a
@@ -150,12 +152,14 @@ const Cart = () => {
                     <div className="mt-4 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or <br />
-                        <button
-                          type="button"
-                          className="font-medium mt-4 text-indigo-600 hover:text-indigo-500"
-                        >
-                          Continue Shopping &rarr;
-                        </button>
+                        <NavLink to="/allproducts">
+                          <button
+                            type="button"
+                            className="font-medium mt-4 text-indigo-600 hover:text-indigo-500"
+                          >
+                            Continue Shopping &rarr;
+                          </button>
+                        </NavLink>
                       </p>
                     </div>
                   </div>

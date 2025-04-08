@@ -21,13 +21,13 @@ const Header = () => {
     e.preventDefault();
     const searchValue = e.target.search.value.trim();
     if (searchValue) {
-      navigate(`/search?value=${searchValue}`);
+      navigate(`/allproducts?value=${searchValue}`);
     }
   };
 
   return (
     <Fragment>
-      <div className="flex justify-between items-center w-full h-20 px-4 lg:px-8">
+      <div className="flex justify-between   items-center w-full h-20 px-4 lg:px-8">
         <div className="hidden lg:flex items-center space-x-6">
           <NavLink to="/" className="font-bold text-lg uppercase">
             Home

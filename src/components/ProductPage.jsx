@@ -13,7 +13,8 @@ import { useCartContext } from "./context/CartContext";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import axios from "axios";
-
+import { NavLink, useLocation } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -55,8 +56,27 @@ const ProductPage = () => {
 
   return (
     <Fragment>
-      <div className="grid w-screen h-auto grid-cols-1 px-4 py-5 md:px-8 lg:grid-cols-2 lg:px-40">
-        <div ref={ImageRef} className="w-auto h-auto p-5">
+      <p className="text-sm uppercase font-extrabold text-indigo-400 flex justify-center items-center mx-4 my-4">
+        <NavLink to="/">
+          <span className="transition ease-in  hover:text-black ">Home</span>
+        </NavLink>
+        <span className="text-black mx-1">
+          <IoIosArrowForward />
+        </span>
+        <NavLink to="/allproducts">
+          <span className="transition ease-in  hover:text-black ">
+            products
+          </span>
+        </NavLink>
+        <span className="text-black mx-1">
+          <IoIosArrowForward />
+        </span>
+        <NavLink to={`/product/${id}`}>
+          <span className="transition ease-in  hover:text-black ">{id}</span>
+        </NavLink>
+      </p>
+      <div className="grid w-screen h-auto grid-cols-1 px-4 py-2 md:px-8 lg:grid-cols-2 lg:px-40">
+        <div ref={ImageRef} className="w-auto h-auto p-2">
           {image && image.length > 0 ? (
             <Swiper
               pagination={{
