@@ -13,9 +13,7 @@ export const Footer = () => {
       <div className="footer-container mt-5 w-full bg-black text-white py-8 sm:py-12 md:py-16 px-6 sm:px-12 lg:px-20">
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="text-center sm:text-left p-4">
-            <p className="font-semibold text-xl capitalize mb-4">
-              Av Clothing Store
-            </p>
+            <p className="font-semibold text-xl capitalize mb-4">Av Store</p>
             <p className="text-sm leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
