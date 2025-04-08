@@ -92,7 +92,7 @@ export const Footer = () => {
             </button>
           </div>
           <div className="text-center text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} AV Store. All Rights Reserved.
+            &copy; {new Date().getFullYear()} AVolution. All Rights Reserved.
           </div>
         </div>
       </div>
