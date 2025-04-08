@@ -7,12 +7,13 @@ import AllProducts from "./components/AllProducts";
 import { Footer } from "./components/Footer";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
-
+import Slidebar from "./components/Slidebar";
 const App = () => {
   return (
     <Router>
       <Header />
       <Cart />
+      <Slidebar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductPage />} />

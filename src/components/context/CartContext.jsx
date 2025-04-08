@@ -11,13 +11,21 @@ function getProductFromLs() {
     return JSON.parse(cartProduct);
   }
 }
+function getTotalPriceFromLs() {
+  let totalPrice = localStorage.getItem("totalprice");
+  if (!totalPrice) {
+    return 0;
+  } else {
+    return parseFloat(totalPrice);
+  }
+}
 
 const CartContext = createContext();
 const cartInitialState = {
   cart: getProductFromLs(),
   showcart: "",
   totalitems: 0,
-  totalprice: 0,
+  totalprice: getTotalPriceFromLs(),
 };
 
 export default function CartContextProvider({ children }) {
@@ -46,7 +54,8 @@ export default function CartContextProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("cartProduct", JSON.stringify(cartState.cart));
-  }, [cartState.cart]);
+    localStorage.setItem("totalprice", JSON.stringify(cartState.totalprice));
+  }, [cartState.cart, cartState.totalprice]);
 
   const toggleCart = () => {
     dispatch({ type: "TOGGLE_CART" });

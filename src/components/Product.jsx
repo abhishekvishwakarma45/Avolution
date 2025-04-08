@@ -4,6 +4,7 @@ import FormatPrice from "./FormatPrice";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Make sure ScrollTrigger is imported
+import { NavLink } from "react-router";
 
 gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
@@ -30,7 +31,7 @@ const Product = ({ current }) => {
 
   return (
     <Fragment>
-      <a href={`/product/${id}`}>
+      <NavLink to={`/product/${id}`}>
         <div
           ref={productRef}
           className="w-full h-auto p-2 m-2"
@@ -43,13 +44,6 @@ const Product = ({ current }) => {
               className="object-cover w-full h-full rounded-xs"
               loading="lazy"
             />
-
-            <span
-              className="relative p-2 pl-6 pr-6 text-xs text-white bg-black rounded-4xl left-2"
-              style={{ top: "-95%" }}
-            >
-              20%
-            </span>
           </div>
 
           <div className="w-full h-auto p-3 text-left product-desc capitalise">
@@ -87,7 +81,7 @@ const Product = ({ current }) => {
             </div>
           </div>
         </div>
-      </a>
+      </NavLink>
     </Fragment>
   );
 };

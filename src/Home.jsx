@@ -7,7 +7,7 @@ import UltimateCollectionSection from "./components/UltimateCollectionSection";
 import ExclusiveSection from "./components/ExclusiveSection";
 import Review from "./components/Review";
 import BrandCarousel from "./components/Brands";
-import Slidebar from "./components/Slidebar";
+
 const Home = () => {
   return (
     <Fragment>
@@ -17,7 +17,6 @@ const Home = () => {
       {/* <BrandCarousel /> */}
       <ExclusiveSection />
       <Review />
-      <Slidebar />
     </Fragment>
   );
 };

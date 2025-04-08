@@ -71,7 +71,7 @@ const AllProducts = () => {
     <Fragment>
       <div className="w-auto h-auto AllProducts">
         <div className="flex flex-col justify-between w-full h-auto searchbar lg:flex-row">
-          <div className="flex items-center justify-between p-10 w-full py-4 rounded-xs">
+          <div className="flex items-center justify-between w-full py-4 rounded-xs px-4 md:px-10 lg:px-20 ">
             <div>
               <span className="text-2xl cursor-pointer" onClick={toggleFilter}>
                 <MdFilterList className="block md:hidden" />

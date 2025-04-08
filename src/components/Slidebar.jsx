@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useProductContext from "./context/ProductContext";
 import { RxCross2 } from "react-icons/rx";
 import { HiHome } from "react-icons/hi2";
@@ -8,6 +8,7 @@ import { HiMiniUserGroup } from "react-icons/hi2";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { AiOutlineInbox } from "react-icons/ai";
 import { BiHomeSmile } from "react-icons/bi";
+import { NavLink } from "react-router-dom"; // Corrected import
 
 const Slidebar = () => {
   const { state, toggleSidebar } = useProductContext();
@@ -20,7 +21,7 @@ const Slidebar = () => {
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden="true"
-        onClick={toggleSidebar}
+        onClick={() => toggleSidebar(false)} // Explicitly pass false to close the sidebar
       ></div>
 
       <div
@@ -47,7 +48,7 @@ const Slidebar = () => {
           </div>
           <hr />
           <nav className="flex flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
-            <a href="/home">
+            <NavLink to="/" onClick={() => toggleSidebar(false)}>
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -56,9 +57,9 @@ const Slidebar = () => {
                 <div className="grid mr-4 place-items-center"></div>
                 Home
               </div>
-            </a>
+            </NavLink>
 
-            <a href="/allproducts">
+            <NavLink to="/allproducts" onClick={() => toggleSidebar(false)}>
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -67,8 +68,8 @@ const Slidebar = () => {
                 <div className="grid mr-4 place-items-center"></div>
                 Products
               </div>
-            </a>
-            <a href="/cart">
+            </NavLink>
+            <NavLink to="/cart" onClick={() => toggleSidebar(false)}>
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -77,8 +78,8 @@ const Slidebar = () => {
                 <div className="grid mr-4 place-items-center"></div>
                 Cart
               </div>
-            </a>
-            <a href="/about">
+            </NavLink>
+            <NavLink to="/about" onClick={() => toggleSidebar(false)}>
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -87,8 +88,8 @@ const Slidebar = () => {
                 <div className="grid mr-4 place-items-center"></div>
                 About Us
               </div>
-            </a>
-            <a href="/contact">
+            </NavLink>
+            <NavLink to="/contact" onClick={() => toggleSidebar(false)}>
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -97,7 +98,7 @@ const Slidebar = () => {
                 <div className="grid mr-4 place-items-center"></div>
                 Get In Touch
               </div>
-            </a>
+            </NavLink>
           </nav>
 
           <div className="mt-auto border-t-1 p-2 text-center text-sm text-gray-500">
