@@ -72,7 +72,7 @@ const ProductPage = () => {
           <IoIosArrowForward />
         </span>
         <NavLink to={`/product/${id}`}>
-          <span className="transition ease-in  hover:text-black ">{id}</span>
+          <span className="transition ease-in  hover:text-black ">{name}</span>
         </NavLink>
       </p>
       <div className="grid w-screen h-auto grid-cols-1 px-4 py-2 md:px-8 lg:grid-cols-2 lg:px-40">
