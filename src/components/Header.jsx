@@ -10,13 +10,12 @@ import { useState } from "react";
 import useProductContext from "./context/ProductContext";
 import Slidebar from "./Slidebar";
 const Header = () => {
+  const navigate = useNavigate();
   const { cartState, toggleCart } = useCartContext();
   const { cart } = cartState;
   const { updateFilterValue } = useFilterContext();
-  const navigate = useNavigate();
 
   const { toggleSidebar, state } = useProductContext();
-
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.search.value.trim();
@@ -24,7 +23,6 @@ const Header = () => {
       navigate(`/allproducts?value=${searchValue}`);
     }
   };
-
   return (
     <Fragment>
       <div className="flex justify-between   items-center w-full h-20 px-4 lg:px-8">
@@ -58,7 +56,7 @@ const Header = () => {
             onSubmit={handleSearch}
             className=" items-center hidden justify-center w-full py-4 rounded-xs lg:flex "
           >
-            <div className="border flex items-center justify-center">
+            <div className="border flex items-center rounded-sm overflow-hidden justify-center">
               <input
                 type="text"
                 name="search"

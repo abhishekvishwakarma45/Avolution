@@ -1,23 +1,15 @@
-import { useContext, useEffect, useReducer } from "react";
-import { createContext } from "react";
+import { useContext, useEffect, useReducer, createContext } from "react";
 import React from "react";
-import { CartReducer as reducer } from "../reducer/CartReducer";
+import { CartReducer as reducer } from "../reducer/CartReducer"; // ensure correct import
 
 function getProductFromLs() {
-  let cartProduct = localStorage.getItem("cartProduct");
-  if (!cartProduct) {
-    return [];
-  } else {
-    return JSON.parse(cartProduct);
-  }
+  const cartProduct = localStorage.getItem("cartProduct");
+  return cartProduct ? JSON.parse(cartProduct) : [];
 }
+
 function getTotalPriceFromLs() {
-  let totalPrice = localStorage.getItem("totalprice");
-  if (!totalPrice) {
-    return 0;
-  } else {
-    return parseFloat(totalPrice);
-  }
+  const totalPrice = localStorage.getItem("totalprice");
+  return totalPrice ? parseFloat(totalPrice) : 0;
 }
 
 const CartContext = createContext();
@@ -39,7 +31,7 @@ export default function CartContextProvider({ children }) {
     price,
     singleProduct
   ) => {
-    let product = {
+    const product = {
       id,
       selectedColor,
       quantity,
@@ -54,8 +46,11 @@ export default function CartContextProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("cartProduct", JSON.stringify(cartState.cart));
-    if (cartState.cart.length != 0) {
-      localStorage.setItem("totalprice", JSON.stringify(cartState.totalprice));
+  }, [cartState.cart]);
+
+  useEffect(() => {
+    if (cartState.cart.length > 0) {
+      localStorage.setItem("totalprice", cartState.totalprice.toString()); // store as string
     }
   }, [cartState.cart, cartState.totalprice]);
 
