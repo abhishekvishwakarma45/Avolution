@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useCartContext } from "./context/CartContext";
 import FormatPrice from "./FormatPrice";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
+
 import { NavLink } from "react-router";
 
 const Cart = () => {

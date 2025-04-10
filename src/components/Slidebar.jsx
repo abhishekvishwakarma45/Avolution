@@ -9,10 +9,11 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { AiOutlineInbox } from "react-icons/ai";
 import { BiHomeSmile } from "react-icons/bi";
 import { NavLink } from "react-router-dom"; // Corrected import
-
+import { useCartContext } from "./context/CartContext";
 const Slidebar = () => {
   const { state, toggleSidebar } = useProductContext();
   const { isSidebarOpen } = state;
+  const { toggleCart } = useCartContext();
 
   return (
     <div>
@@ -21,7 +22,7 @@ const Slidebar = () => {
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden="true"
-        onClick={() => toggleSidebar(false)} // Explicitly pass false to close the sidebar
+        onClick={() => toggleSidebar(false)}
       ></div>
 
       <div
@@ -69,7 +70,12 @@ const Slidebar = () => {
                 Products
               </div>
             </NavLink>
-            <NavLink to="/cart" onClick={() => toggleSidebar(false)}>
+            <NavLink
+              to="/"
+              onClick={() => {
+                toggleSidebar(false), toggleCart();
+              }}
+            >
               <div
                 role="button"
                 className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"

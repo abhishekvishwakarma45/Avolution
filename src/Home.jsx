@@ -14,7 +14,6 @@ const Home = () => {
       <HeroSection />
       <FeaturedSection />
       <UltimateCollectionSection />
-      {/* <BrandCarousel /> */}
       <ExclusiveSection />
       <Review />
     </Fragment>

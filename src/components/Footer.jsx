@@ -69,10 +69,10 @@ export const Footer = () => {
                 placeholder="Enter Your E-mail"
                 className="w-full sm:w-auto p-3 bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-xs"
               />
-              <button className="bg-amber-300 text-black p-3 font-bold rounded-xs hover:bg-amber-400 uppercase text-sm">
-                Subscribe
-              </button>
             </div>
+            <button className="bg-amber-300 text-black p-3 my-1 font-bold rounded-xs hover:bg-amber-400 uppercase text-sm">
+              Subscribe
+            </button>
           </div>
         </div>
 
