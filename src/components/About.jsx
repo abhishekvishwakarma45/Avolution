@@ -1,24 +1,40 @@
 import React from "react";
+import { NavLink } from "react-router";
+import { IoIosArrowForward } from "react-icons/io";
 
 const About = () => {
   return (
-    <section className="w-full px-6 py-16 bg-white text-gray-800">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="w-full px-6 py-4 bg-white text-gray-800">
+      <p className="text-sm uppercase font-extrabold text-indigo-400 flex justify-center items-center mx-4 my-4">
+        <NavLink to="/">
+          <span className="transition ease-in  hover:text-black ">Home</span>
+        </NavLink>
+        <span className="text-black mx-1">
+          <IoIosArrowForward />
+        </span>
+        <NavLink to="/allproducts">
+          <span className="transition ease-in  hover:text-black ">
+            About us
+          </span>
+        </NavLink>
+      </p>
+      <div className="container my-3 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="text-center lg:text-left">
           <h1
-            className="text-5xl lg:text-6xl font-extrabold uppercase mb-6"
+            className="text-3xl lg:text-4xl font-extrabold uppercase mb-4"
             style={{ fontFamily: "Unbounded, serif" }}
           >
             About Us
           </h1>
+
           <p className="text-xl lg:text-2xl mb-4">
-            Welcome to{" "}
+            Welcome to
             <span
-              className="text-amber-400 font-extrabold uppercase"
+              className="text-amber-400 mx-1 font-extrabold uppercase"
               style={{ fontFamily: "Unbounded, serif" }}
             >
               Avolution
-            </span>{" "}
+            </span>
             — where fashion meets individuality.
           </p>
           <p className="text-lg">
@@ -40,7 +56,7 @@ const About = () => {
 
       <div className="container mx-auto my-12 text-center">
         <h2
-          className="text-4xl font-extrabold uppercase my-6"
+          className="text-3xl md:text-4xl font-extrabold uppercase my-6"
           style={{ fontFamily: "Unbounded, serif" }}
         >
           Why Choose Us
@@ -81,7 +97,7 @@ const About = () => {
         </div>
         <div className="text-center lg:text-left order-1 lg:order-2">
           <h2
-            className="text-4xl font-extrabold uppercase mb-6"
+            className="text-3xl md:text-4xl font-extrabold uppercase mb-6"
             style={{ fontFamily: "Unbounded, serif" }}
           >
             What We Do
@@ -97,7 +113,7 @@ const About = () => {
 
       <div className="container mx-auto mt-24 text-center">
         <h2
-          className="text-4xl font-extrabold uppercase mb-8"
+          className="text-3xl md:text-4xl font-extrabold uppercase mb-6"
           style={{ fontFamily: "Unbounded, serif" }}
         >
           Our Services
@@ -138,7 +154,7 @@ const About = () => {
             <div className="w-full h-40 overflow-hidden mb-4">
               <img
                 className="w-full h-full object-cover"
-                src="./support.jpg"
+                src="./payment.jpg"
                 alt="Secure Payment"
                 loading="lazy"
               />
