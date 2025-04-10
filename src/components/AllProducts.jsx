@@ -86,15 +86,15 @@ const AllProducts = () => {
     <Fragment>
       <div className="w-auto h-auto AllProducts">
         <div className="flex flex-col justify-between w-full h-auto searchbar lg:flex-row">
-          <div className="flex justify-between items-center w-full py-2 rounded-xs px-4 md:px-10 lg:px-20 ">
-            <div className="flex justify-between lg:justify-start items-center en">
+          <div className="flex justify-between items-center  w-full py-2 rounded-xs px-4 md:px-10 lg:px-20 ">
+            <div className="flex justify-between  lg:justify-start items-center en">
               <span
                 className="text-3xl px-2 cursor-pointer"
                 onClick={toggleFilter}
               >
                 <MdFilterList className="block md:hidden" />
               </span>
-              <p className="text-sm uppercase font-extrabold text-indigo-400 flex justify-center items-center mx-4 my-4">
+              <p className="text-sm uppercase px-8 font-extrabold text-indigo-400 flex justify-center items-center  my-4">
                 <NavLink to="/">
                   <span className="transition ease-in  hover:text-black ">
                     Home
@@ -104,15 +104,13 @@ const AllProducts = () => {
                   <IoIosArrowForward />
                 </span>
                 <NavLink to="/allproducts">
-                  <span className="transition ease-in  hover:text-black ">
-                    products
-                  </span>
+                  <span className="text-black ">products</span>
                 </NavLink>
               </p>
             </div>
 
             <div className="flex justify-end items-center w-auto">
-              <div className="relative max-w-full  ml-auto mr-0">
+              <div className="relative max-w-full ml-auto mr-0">
                 <button
                   onClick={() => setSortOpen(!sortOpen)}
                   className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 bg-white text-black font-medium rounded cursor-pointer"

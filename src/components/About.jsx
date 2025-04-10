@@ -5,19 +5,20 @@ import { IoIosArrowForward } from "react-icons/io";
 const About = () => {
   return (
     <section className="w-full px-6 py-4 bg-white text-gray-800">
-      <p className="text-sm uppercase font-extrabold text-indigo-400 flex justify-center items-center mx-4 my-4">
+      <p className="text-sm uppercase px-4 lg:px-20 md:px-10 font-extrabold  text-indigo-400 flex items-center my-5">
         <NavLink to="/">
-          <span className="transition ease-in  hover:text-black ">Home</span>
+          <span className="transition ease-in hover:text-black">Home</span>
         </NavLink>
         <span className="text-black mx-1">
           <IoIosArrowForward />
         </span>
         <NavLink to="/allproducts">
-          <span className="transition ease-in  hover:text-black ">
-            About us
-          </span>
+          <span className="transition ease-in text-black">About us</span>
         </NavLink>
       </p>
+
+      <hr className="text-gray-500 my-4" />
+
       <div className="container my-3 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="text-center lg:text-left">
           <h1
@@ -75,7 +76,7 @@ const About = () => {
               detail.
             </p>
           </div>
-          <div className="bg-gray-50 p-6  border border-gray-200 rounded-tl-xl rounded-br-xl shadow-lg">
+          <div className="bg-gray-50 p-6 border border-gray-200 rounded-tl-xl rounded-br-xl shadow-lg">
             <h3 className="text-xl font-semibold mb-2">Inclusive for All</h3>
             <p>We design with every body, identity, and story in mind.</p>
           </div>

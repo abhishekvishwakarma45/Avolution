@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <Fragment>
       <div
-        className={`fixed inset-0 z-30 transition-transform duration-300 ${
+        className={`fixed inset-0 z-80 transition-transform duration-300 ${
           showcart ? "translate-x-0" : "translate-x-full"
         }`}
         aria-labelledby="slide-over-title"
@@ -97,11 +97,11 @@ const Cart = () => {
                                           </h3>
                                           <FormatPrice price={curr.price} />
                                         </div>
-                                        <p className="mt-1 text-sm text-gray-500">
+                                        <p className="mt-1 flex justify-start items-centertext-sm text-gray-500">
                                           <span>
                                             Color:
                                             <span
-                                              className="px-3 py-0.5 mx-1 rounded-full"
+                                              className="inline-block w-3 h-3 mx-1 rounded-full border border-gray-300"
                                               style={{
                                                 backgroundColor:
                                                   curr.selectedColor,
@@ -109,8 +109,10 @@ const Cart = () => {
                                             ></span>
                                           </span>
                                           <br />
-                                          <span>Size:{curr.selectedSize}</span>
                                         </p>
+                                        <span className="text-gray-500">
+                                          Size:{curr.selectedSize}
+                                        </span>
                                         <div className="flex flex-1 items-end justify-between text-sm">
                                           <p className="text-gray-500">
                                             Quantity: {curr.quantity}
