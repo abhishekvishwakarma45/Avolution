@@ -28,7 +28,7 @@ export default function Contact() {
 
           <div className="space-y-2">
             <form className="bg-white rounded-xl p-4 space-y-5">
-              <div className="text-center mb-10">
+              <div className="text-center mb-6">
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">
                   Get In Touch
                 </h2>

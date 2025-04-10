@@ -154,6 +154,7 @@ const AllProducts = () => {
             onClick={toggleFilter}
           ></div>
         )}
+        <hr className="mx-4 md:mx-10 lg:mx-20 border-t border-gray-400" />
 
         <div
           className="flex justify-center w-screen h-auto gap-4 my-6 px-4 md:px-10 lg:px-20 lg:grid"

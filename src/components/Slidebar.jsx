@@ -102,7 +102,7 @@ const Slidebar = () => {
               >
                 <HiMiniUserGroup />
                 <div className="grid mr-4 place-items-center"></div>
-                Get In Touch
+                Contact Us
               </div>
             </NavLink>
           </nav>

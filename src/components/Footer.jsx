@@ -14,9 +14,8 @@ export const Footer = () => {
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="text-left p-4">
             <p className="font-semibold text-xl capitalize mb-4">AVolution</p>
-            <p className="text-sm leading-relaxed">
-              Where the future of eCommerce unfolds—blending innovation and
-              growth for a transformative shopping experience.
+            <p className="text-sm capitalize leading-relaxed">
+              where fashion meets individuality.
             </p>
           </div>
 
