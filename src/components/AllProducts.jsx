@@ -150,7 +150,7 @@ const AllProducts = () => {
 
         {isFilterVisible && (
           <div
-            className="fixed inset-0 bg-gray-500/75 transition-opacity"
+            className="fixed inset-0 bg-gray-500/75 z-[50] transition-opacity"
             onClick={toggleFilter}
           ></div>
         )}
@@ -161,7 +161,7 @@ const AllProducts = () => {
           style={{ gridTemplateColumns: "25% 65%" }}
         >
           <div
-            className={`w-[80vw] z-50 h-screen p-2 border border-gray-400 rounded-lg shadow-xl filter-section fixed top-0 left-0 bg-white transition-transform duration-300 ease-in-out transform ${
+            className={`w-[80vw] z-[60] h-screen p-2 border border-gray-400 rounded-lg shadow-xl filter-section fixed top-0 left-0 bg-white transition-transform duration-300 ease-in-out transform ${
               isFilterVisible ? "translate-x-0" : "-translate-x-full"
             } lg:translate-x-0 lg:relative lg:block lg:w-auto lg:h-auto`}
             ref={filterPin}

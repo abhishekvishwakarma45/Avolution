@@ -1,14 +1,14 @@
 import React from "react";
 import useProductContext from "./context/ProductContext";
 import { RxCross2 } from "react-icons/rx";
-import { HiHome } from "react-icons/hi2";
+
 import { IoInformationCircleOutline } from "react-icons/io5";
-import { BiSupport } from "react-icons/bi";
+
 import { HiMiniUserGroup } from "react-icons/hi2";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { AiOutlineInbox } from "react-icons/ai";
 import { BiHomeSmile } from "react-icons/bi";
-import { NavLink } from "react-router-dom"; // Corrected import
+import { NavLink } from "react-router-dom";
 import { useCartContext } from "./context/CartContext";
 const Slidebar = () => {
   const { state, toggleSidebar } = useProductContext();
@@ -18,7 +18,7 @@ const Slidebar = () => {
   return (
     <div>
       <div
-        className={`fixed inset-0 bg-gray-500/75 transition-opacity ${
+        className={`fixed inset-0 bg-gray-500/75 z-[40] transition-opacity ${
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden="true"
@@ -26,22 +26,22 @@ const Slidebar = () => {
       ></div>
 
       <div
-        className={`fixed inset-0 z-50 transition-transform duration-300 ${
+        className={`fixed inset-0 z-[50] transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="relative flex h-screen w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5">
-          <div className="p-4 mb-2 flex justify-between items-center h-14">
+          <div className="flex items-center justify-between p-4 mb-2 h-14">
             <div className="h-14 w-[15vh] flex justify-between items-center">
               <img
-                className="object-contain max-h-full max-w-full"
+                className="object-contain max-w-full max-h-full"
                 src="https://res.cloudinary.com/dqktbs8zx/image/upload/v1744024894/logo-removebg-preview_ctd0jf.png"
                 alt="Logo"
               />
             </div>
 
             <button
-              className="text-2xl h-auto w-auto"
+              className="w-auto h-auto text-2xl"
               onClick={() => toggleSidebar(false)}
             >
               <RxCross2 />
@@ -107,7 +107,7 @@ const Slidebar = () => {
             </NavLink>
           </nav>
 
-          <div className="mt-auto border-t-1 p-2 text-center text-sm text-gray-500">
+          <div className="p-2 mt-auto text-sm text-center text-gray-500 border-t-1">
             <p>
               &#169; {new Date().getFullYear()} Developed by <br /> Abhishek
               Vishwakarma

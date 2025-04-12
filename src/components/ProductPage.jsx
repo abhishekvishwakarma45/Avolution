@@ -10,10 +10,8 @@ import { useParams } from "react-router";
 import useProductContext from "./context/ProductContext";
 import FormatPrice from "./FormatPrice";
 import { useCartContext } from "./context/CartContext";
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
-import axios from "axios";
-import { NavLink, useLocation } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -56,23 +54,21 @@ const ProductPage = () => {
 
   return (
     <Fragment>
-      <p className="text-sm uppercase font-extrabold text-indigo-400 flex justify-center items-center mx-4 my-4">
+      <p className="flex items-center justify-center mx-4 my-4 text-sm font-extrabold text-indigo-400 uppercase">
         <NavLink to="/">
-          <span className="transition ease-in  hover:text-black ">Home</span>
+          <span className="transition ease-in hover:text-black ">Home</span>
         </NavLink>
-        <span className="text-black mx-1">
+        <span className="mx-1 text-black">
           <IoIosArrowForward />
         </span>
         <NavLink to="/allproducts">
-          <span className="transition ease-in  hover:text-black ">
-            products
-          </span>
+          <span className="transition ease-in hover:text-black ">products</span>
         </NavLink>
-        <span className="text-black mx-1">
+        <span className="mx-1 text-black">
           <IoIosArrowForward />
         </span>
         <NavLink to={`/product/${id}`}>
-          <span className="transition ease-in  hover:text-black ">{name}</span>
+          <span className="transition ease-in hover:text-black ">{name}</span>
         </NavLink>
       </p>
       <div className="grid w-screen h-auto grid-cols-1 px-4 py-2 md:px-8 lg:grid-cols-2 lg:px-40">
@@ -111,7 +107,7 @@ const ProductPage = () => {
 
           <p className="my-1 ">{description}</p>
           <div className="color-container">
-            <span className="my-1 font-bold text-xs ">color:</span>
+            <span className="my-1 text-xs font-bold ">color:</span>
             <br />
             {Array.isArray(color)
               ? color.map((current, index) => {
@@ -130,7 +126,7 @@ const ProductPage = () => {
           </div>
 
           <div className="size-container">
-            <span className="my-1 font-bold text-xs ">size:</span>
+            <span className="my-1 text-xs font-bold ">size:</span>
             <br />
             {Array.isArray(size)
               ? size.map((current, index) => {

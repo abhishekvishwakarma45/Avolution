@@ -29,7 +29,6 @@ const UltimateCollectionSection = () => {
         start: "top 100%",
         end: "top 40%",
         scrub: true,
-
         toggleActions: "play none none none",
       },
 
