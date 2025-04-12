@@ -26,9 +26,10 @@ const UltimateCollectionSection = () => {
     gsap.from(headingRef.current, {
       scrollTrigger: {
         trigger: headingRef.current,
-        start: "top 90%",
+        start: "top 100%",
         end: "top 40%",
         scrub: true,
+
         toggleActions: "play none none none",
       },
       rotationX: 180,

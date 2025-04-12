@@ -10,19 +10,35 @@ const FeaturedSection = () => {
   const { state } = useProductContext();
   const { featuredProducts } = state;
 
-  const animatedText = useRef(null);
+  const animatedTextRef = useRef(null);
 
   useEffect(() => {
-    if (animatedText.current) {
-      gsap.from(animatedText.current, {
+    if (animatedTextRef.current) {
+      const lines = animatedTextRef.current.querySelectorAll(".line");
+
+      lines.forEach((line) => {
+        const text = line.textContent;
+        line.innerHTML = text
+          .split("")
+          .map((char) =>
+            char === " " ? `<span>&nbsp;</span>` : `<span>${char}</span>`
+          )
+          .join("");
+      });
+
+      const allSpans = animatedTextRef.current.querySelectorAll("span");
+
+      gsap.from(allSpans, {
         scrollTrigger: {
-          trigger: animatedText.current,
-          start: "top 90%",
-          end: "top 40%",
+          trigger: animatedTextRef.current,
+          start: "top 85%",
+          end: "top 35%",
+          scrub: true,
         },
-        scale: 2,
         opacity: 0,
-        duration: 0.8, // Added duration for faster animation
+        y: 50,
+        stagger: 0.05,
+        duration: 1,
         ease: "power2.out",
       });
     }
@@ -33,12 +49,12 @@ const FeaturedSection = () => {
       <div className="w-auto h-auto my-10">
         <div className="flex flex-col items-center justify-center text-center mb-10">
           <h1
-            ref={animatedText}
-            className="text-4xl font-extrabold uppercase transition-all duration-1000 ease-in-out"
-            style={{ fontFamily: "Unbounded,poppins" }}
+            ref={animatedTextRef}
+            className="text-4xl font-extrabold uppercase leading-snug"
+            style={{ fontFamily: "Unbounded, poppins" }}
           >
-            Elevate Your Experience <br />
-            <span className="text-2xl block mt-2">with Our Top Choices</span>
+            <div className="line block">Elevate Your Experience</div>
+            <div className="line block text-2xl mt-2">with Our Top Choices</div>
           </h1>
           <hr className="w-[80%] text-gray-400 mt-8" />
         </div>

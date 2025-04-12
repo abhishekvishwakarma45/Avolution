@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
   {
@@ -50,6 +54,36 @@ const reviews = [
 ];
 
 export default function Review() {
+  const animatedHeadingRef = useRef(null);
+
+  useEffect(() => {
+    if (animatedHeadingRef.current) {
+      const text = animatedHeadingRef.current.textContent;
+      animatedHeadingRef.current.innerHTML = text
+        .split("")
+        .map((char) =>
+          char === " " ? `<span>&nbsp;</span>` : `<span>${char}</span>`
+        )
+        .join("");
+
+      const spans = animatedHeadingRef.current.querySelectorAll("span");
+
+      gsap.from(spans, {
+        scrollTrigger: {
+          trigger: animatedHeadingRef.current,
+          start: "top 85%",
+          end: "top 35%",
+          scrub: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+  }, []);
+
   return (
     <section
       id="testimonials"
@@ -59,12 +93,14 @@ export default function Review() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl md:text-center">
           <h2
+            ref={animatedHeadingRef}
             className="font-display text-3xl uppercase font-extrabold text-slate-900 sm:text-4xl"
             style={{ fontFamily: "unBounded" }}
           >
             What Our Customers Are Saying
           </h2>
         </div>
+
         <Swiper
           pagination={{
             dynamicBullets: true,
