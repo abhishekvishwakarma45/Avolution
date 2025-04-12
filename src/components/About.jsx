@@ -27,12 +27,12 @@ const About = () => {
               className="text-amber-400 mx-1 font-extrabold uppercase"
               style={{ fontFamily: "Unbounded, serif" }}
             >
-              Avolution
+              Avora
             </span>
             <br />— where fashion meets individuality.
           </p>
           <p className="text-md">
-            Established in 2025, Avolution is dedicated to delivering
+            Established in 2025, Avora is dedicated to delivering
             high-impact fashion that celebrates diversity, self-expression, and
             sustainability. From everyday wear to bold statements, we empower
             individuals to express their identity through style—without
@@ -57,9 +57,7 @@ const About = () => {
           Why Choose Us
         </h2>
         <p className="text-lg max-w-3xl mx-auto mb-12">
-          Avolution isn’t just a fashion brand—it’s a statement. We merge
-          trendsetting designs with ethical values, ensuring each piece reflects
-          our core: innovation, inclusivity, and integrity.
+          “At Avora, we believe in curating moments of elegance, comfort, and innovation in everyday life. Our collection is designed to elevate your lifestyle — from the way you dress, to the spaces you inhabit, to the experiences you embrace. Avora is not just a brand; it’s the first light of a new way of living.”
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-gray-50 border border-gray-200 p-6 rounded-tl-xl rounded-br-xl shadow-lg">
