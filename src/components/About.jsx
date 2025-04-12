@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const About = () => {
   return (
-    <section className="w-full px-6 py-4 bg-white text-gray-800">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-4 bg-white text-gray-800">
       <p className="text-sm uppercase px-4 lg:px-20 md:px-10 font-extrabold text-indigo-400 flex items-center my-5">
         <NavLink to="/">
           <span className="transition ease-in hover:text-black">Home</span>
@@ -49,7 +49,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="container mx-auto my-12 text-center">
+      <div className="container mx-auto my-14 text-center">
         <h2
           className="text-3xl md:text-4xl font-extrabold uppercase my-6"
           style={{ fontFamily: "Unbounded, serif" }}
@@ -110,7 +110,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="container mx-auto mt-24 text-center">
+      <div className="container mx-auto my-16 text-center">
         <h2
           className="text-3xl md:text-4xl font-extrabold uppercase mb-6"
           style={{ fontFamily: "Unbounded, serif" }}

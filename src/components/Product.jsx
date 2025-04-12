@@ -3,30 +3,30 @@ import { Fragment } from "react";
 import FormatPrice from "./FormatPrice";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // Make sure ScrollTrigger is imported
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NavLink } from "react-router";
 
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 const Product = ({ current }) => {
   const { id, name, brand, price, color, image, size } = current;
   const productRef = useRef();
 
   useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    gsap.from(productRef.current, {
+      opacity: 0,
 
-    if (isDesktop) {
-      gsap.from(productRef.current, {
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: productRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: true,
-        },
-      });
-    }
+      y: 50,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: productRef.current,
+        start: "top 90%",
+        end: "bottom 10%",
+        scrub: false,
+        toggleActions: "play none none none",
+      },
+    });
   }, []);
 
   return (

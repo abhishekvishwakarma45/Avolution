@@ -2,73 +2,69 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NavLink } from "react-router";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const UltimateCollectionSection = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  const firstRef = useRef();
-  const secondRef = useRef();
+  const videoRef = useRef();
+  const headingRef = useRef();
 
   useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (isDesktop) {
-      gsap.from(firstRef.current, {
-        opacity: 0,
-        x: -200,
-        scrollTrigger: {
-          trigger: firstRef.current,
-          start: "top 70%",
-          end: "bottom 80%",
-          scrub: true,
-          // markers: true,
-        },
-      });
+    gsap.from(videoRef.current, {
+      scrollTrigger: {
+        trigger: videoRef.current,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true,
+        toggleActions: "play none none none",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 2,
+    });
 
-      gsap.from(secondRef.current, {
-        opacity: 0,
-        x: 200,
-        scrollTrigger: {
-          trigger: secondRef.current,
-          start: "top 70%",
-          end: "bottom 80%",
-          scrub: true,
-        },
-      });
-    }
+    gsap.from(headingRef.current, {
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+        toggleActions: "play none none none",
+      },
+      rotationX: 180,
+      opacity: 0,
+      duration: 2,
+    });
   }, []);
 
   return (
-    <section className="w-full  my-4 h-auto overflow-hidden px-4 sm:px-10 md:px-20 lg:px-40">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 place-items-center">
-        <div className="w-full h-auto" ref={firstRef}>
-          <div className="relative overflow-hidden w-full h-[50vh]">
-            <img
-              src="cropped.jpg"
-              alt="Ultimate Collection"
-              className="object-cover w-full h-full rounded-tr-4xl rounded-bl-4xl"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex flex-col items-center p-4">
-            <h1
-              className="text-3xl md:text-4xl xl:text-4xl font-bold text-center text-gray-800 uppercase"
-              style={{ fontFamily: "Unbounded, serif" }}
-            >
-              The Ultimate Collection – Perfect for Every Day.
-            </h1>
-            <NavLink to="/allproducts">
-              <button className="mt-6 px-8 py-2 bg-black text-white uppercase font-bold rounded-xs transition-all hover:bg-gray-800">
-                Explore Now
-              </button>
-            </NavLink>
-          </div>
-        </div>
-        <div className="w-full h-full">
-          <img
-            ref={secondRef}
-            src="mohamad-khosravi-N88xBPX2-m8-unsplash.jpg"
-            alt="Collection Display"
-            className="object-cover w-full h-full rounded-tr-4xl rounded-bl-4xl"
-            loading="lazy"
-          />
+    <section className="w-full my-8 h-auto overflow-hidden px-4 md:px-10 lg:px-20">
+      <div
+        className="relative w-full h-[70vh] rounded-sm  overflow-hidden shadow-lg"
+        ref={videoRef}
+      >
+        <video
+          className="object-cover w-full h-full"
+          src="https://res.cloudinary.com/dqktbs8zx/video/upload/v1744439111/e7uqzej1wgeu6quemrzd.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4">
+          <h1
+            ref={headingRef}
+            className="text-3xl md:text-4xl xl:text-4xl font-bold text-white uppercase"
+            style={{ fontFamily: "Unbounded, serif" }}
+          >
+            The Ultimate Collection –{" "}
+            <span className="text-2xl block mt-1">Perfect for Every Day.</span>
+          </h1>
+          <NavLink to="/allproducts">
+            <button className="mt-4 px-12 py-2  bg-white text-black uppercase font-bold rounded-xs transition-all ease-in hover:bg-transparent border border-white hover:text-white">
+              Explore Now
+            </button>
+          </NavLink>
         </div>
       </div>
     </section>

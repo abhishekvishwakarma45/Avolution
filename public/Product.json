@@ -23,7 +23,7 @@
     "color": ["#1F0955", "#F3EFEC", "#002495", "#FAFAFA"],
     "size": ["M", "L", "XL"],
     "category": "male",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/relaxedjeans_winzf2.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/relaxedjeans_winzf2.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/relaxedjeans_winzf2.avif"]
   },
   {
     "id": "3",
@@ -36,7 +36,7 @@
     "color": ["#414141", "#020202", "#FDD6B1", "#0493CD"],
     "size": ["30", "32", "34", "36"],
     "category": "male",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/shirt_t1k4ht.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/shirt_t1k4ht.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/shirt_t1k4ht.avif"]
   },
   {
     "id": "4",
@@ -49,7 +49,7 @@
     "color": ["#F4A2B5", "#002495", "#FDD6B1", "#FAFAFA"],
     "size": ["S", "M", "L", "XL"],
     "category": "male",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt_ynlgqx.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt_ynlgqx.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt_ynlgqx.avif"]
   },
   {
     "id": "5",
@@ -62,7 +62,7 @@
     "color": ["#F3EFEC", "#002495", "#FDD6B1", "#0493CD"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/jacket_ifurtz.avif"]
   },
   {
     "id": "6",
@@ -75,7 +75,7 @@
     "color": ["#414141", "#1F0955", "#002495", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/hm-tshirt_vz1pt1.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/hm-tshirt_vz1pt1.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/hm-tshirt_vz1pt1.avif"]
   },
   {
     "id": "7",
@@ -88,7 +88,7 @@
     "color": ["#FAFAFA", "#0493CD", "#414141", "#FDD6B1"],
     "size": ["28", "30", "32"],
     "category": "female",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cargo_tghgnk.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cargo_tghgnk.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cargo_tghgnk.avif"]
   },
   {
     "id": "8",
@@ -101,7 +101,7 @@
     "color": ["#020202", "#F4A2B5", "#002495", "#1F0955"],
     "size": ["S", "M", "L", "XL"],
     "category": "female",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cap_ms5ff9.jpg","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cap_ms5ff9.jpg","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/cap_ms5ff9.jpg"]
   },
   {
     "id": "11",
@@ -114,7 +114,7 @@
     "color": ["#414141", "#002495", "#FAFAFA", "#FDD6B1"],
     "size": ["S", "M", "L"],
     "category": "male",
-    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/shoes_smtno7.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image":[ "https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/shoes_smtno7.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/shoes_smtno7.avif"]
   },
   {
     "id": "12",
@@ -127,6 +127,6 @@
     "color": ["#F4A2B5", "#1F0955", "#F3EFEC", "#020202"],
     "size": ["S", "M", "L"],
     "category": "female",
-    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/gaon_y1lx1d.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011133/sweatshirt2_qf3moc.avif"]
+    "image": ["https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/gaon_y1lx1d.avif","https://res.cloudinary.com/dqktbs8zx/image/upload/v1744011132/gaon_y1lx1d.avif"]
   }
 ]

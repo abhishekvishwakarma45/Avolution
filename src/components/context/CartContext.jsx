@@ -50,7 +50,8 @@ export default function CartContextProvider({ children }) {
 
   useEffect(() => {
     if (cartState.cart.length > 0) {
-      localStorage.setItem("totalprice", cartState.totalprice.toString()); // store as string
+      localStorage.removeItem("totalprice");
+      localStorage.setItem("totalprice", cartState.totalprice.toString());
     }
   }, [cartState.cart, cartState.totalprice]);
 
