@@ -31,7 +31,7 @@ const FeaturedSection = () => {
       gsap.from(allSpans, {
         scrollTrigger: {
           trigger: animatedTextRef.current,
-          start: "top 85%",
+          start: "top 90%",
           end: "top 35%",
           scrub: true,
         },
@@ -47,16 +47,15 @@ const FeaturedSection = () => {
   return (
     <Fragment>
       <div className="w-auto h-auto my-10">
-        <div className="flex flex-col items-center justify-center text-center mb-10">
+        <div className="flex flex-col items-center justify-center text-center mb-10 px-4 md:px-10 lg:px-20">
           <h1
-            ref={animatedTextRef}
-            className="text-4xl font-extrabold uppercase leading-snug"
+            className="text-3xl  lg:text-4xl font-extrabold uppercase leading-snug"
             style={{ fontFamily: "Unbounded, poppins" }}
           >
             <div className="line block">Elevate Your Experience</div>
             <div className="line block text-2xl mt-2">with Our Top Choices</div>
           </h1>
-          <hr className="w-[80%] text-gray-400 mt-8" />
+          <hr className="w-full text-gray-400 mt-8" />
         </div>
         <div className="grid grid-cols-1 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-20 lg:px-40">
           {featuredProducts.map((curr, index) => (

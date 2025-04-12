@@ -1,10 +1,33 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NavLink } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const HeroSection = () => {
   const navigate = useNavigate();
+  const animatedTextRef = useRef(null);
+
+  useEffect(() => {
+    if (animatedTextRef.current) {
+      gsap.from(animatedTextRef.current, {
+        scrollTrigger: {
+          trigger: animatedTextRef.current,
+          start: "top 100%",
+          end: "top 30%",
+          scrub: true,
+        },
+        opacity: 0,
+        y: 50,
+        duration: 2,
+      });
+    }
+  }, []);
+
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.search.value.trim();
@@ -12,12 +35,14 @@ const HeroSection = () => {
       navigate(`/allproducts?value=${searchValue}`);
     }
   };
+
   return (
     <Fragment>
-      <div className="flex flex-col w-screen h-auto grid-cols-2 p-4 hero-section-container lg:grid ">
+      <div className="flex flex-col w-screen h-auto grid-cols-2 p-4 hero-section-container lg:grid">
         <div className="flex items-center justify-center text-center lg:text-left">
           <div className="flex flex-col items-center justify-center px-6 py-4 hero-section-content lg:items-start">
             <h1
+              ref={animatedTextRef}
               className="mb-4 text-4xl font-extrabold uppercase sm:text-5xl lg:text-6xl"
               style={{ fontFamily: "Unbounded,serif" }}
             >
@@ -44,13 +69,13 @@ const HeroSection = () => {
             <div>
               <form
                 onSubmit={handleSearch}
-                className=" flex items-center justify-center w-full py-2 rounded-xs lg:hidden "
+                className="flex items-center justify-center w-full py-2 rounded-xs lg:hidden"
               >
                 <div className="border flex items-center rounded-tl-xl rounded-ee-xl justify-center overflow-hidden">
                   <input
                     type="text"
                     name="search"
-                    className="w-auto h-auto px-3 py-2 outline-none  text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-xs  "
+                    className="w-auto h-auto px-3 py-2 outline-none text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-xs"
                     placeholder="Search anything..."
                   />
                   <button
@@ -66,13 +91,12 @@ const HeroSection = () => {
         </div>
 
         <div
-          className="object-cover w-full p-4  hero-image-container"
+          className="object-cover w-full p-4 hero-image-container"
           style={{ height: "90vh" }}
         >
           <img
             className="object-cover w-full h-full rounded-tl-3xl rounded-br-4xl"
-            // src="ellee-morr-Yx_Fw-XYroU-unsplash.jpg"
-            src="reza-delkhosh-Ms5iR0egFOM-unsplash.jpg"
+            src="https://res.cloudinary.com/dqktbs8zx/image/upload/v1744447962/reza-delkhosh-Ms5iR0egFOM-unsplash_tfzsa0.jpg"
             alt="Fashion"
             loading="lazy"
           />

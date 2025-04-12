@@ -32,7 +32,8 @@ const UltimateCollectionSection = () => {
 
         toggleActions: "play none none none",
       },
-      rotationX: 180,
+
+      y: 50,
       opacity: 0,
       duration: 2,
     });
