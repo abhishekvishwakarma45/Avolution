@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { MdMailOutline } from "react-icons/md";
-
+import { NavLink } from "react-router";
 export const Footer = () => {
   return (
     <Fragment>
@@ -23,24 +23,33 @@ export const Footer = () => {
             <p className="font-semibold text-xl capitalize mb-4">Quick Links</p>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm hover:text-amber-300 ">
-                  Home
-                </a>
+                <NavLink to="/">
+                  <a href="#" className="text-sm hover:text-amber-300 ">
+                    Home
+                  </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className="text-sm hover:text-amber-300 ">
-                  About Us
-                </a>
+                <NavLink to="/about">
+                  <a href="#" className="text-sm hover:text-amber-300 ">
+                    About Us
+                  </a>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="contact">
+                  <a href="#" className="text-sm hover:text-amber-300 ">
+                    Support
+                  </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className="text-sm hover:text-amber-300 ">
-                  Support
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm hover:text-amber-300 ">
-                  Reviews
-                </a>
+                <NavLink to="/allproducts">
+                  <a href="#" className="text-sm hover:text-amber-300 ">
+                    Products
+                  </a>
+                </NavLink>
               </li>
             </ul>
           </div>
