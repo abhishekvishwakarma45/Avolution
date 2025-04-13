@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "Fit T-shirt",
-    "price": 19.99,
+    "price": 1999.99,
     "brand": "Nike",
     "description": "A stylish and versatile fit t-shirt crafted from premium cotton fabric, designed to provide exceptional comfort and breathability throughout the day. Perfect for both casual outings and active lifestyles, it pairs effortlessly with jeans, joggers, or shorts.",
     "isFeature": true,
@@ -15,7 +15,7 @@
   {
     "id": "2",
     "name": "Jeans",
-    "price": 59.99,
+    "price": 5999.99,
     "brand": "Levi's",
     "description": "Classic, durable jeans featuring a modern cut and high-quality denim construction. These versatile jeans offer a comfortable fit with a timeless look, making them the perfect wardrobe essential for casual weekends or laid-back evenings out.",
     "isFeature": false,
@@ -28,7 +28,7 @@
   {
     "id": "3",
     "name": "Men Shirt",
-    "price": 39.99,
+    "price": 1399.99,
     "brand": "Diesel",
     "description": "A refined men’s shirt tailored for a modern fit, crafted from breathable, lightweight fabric that ensures ease of movement and all-day comfort. Ideal for business casual looks or upscale evening occasions when paired with trousers or denim.",
     "isFeature": false,
@@ -41,7 +41,7 @@
   {
     "id": "4",
     "name": "sweat Shirt",
-    "price": 49.99,
+    "price": 4599.99,
     "brand": "Adidas",
     "description": "This cozy and stylish sweatshirt combines soft, high-quality fabric with a relaxed fit, offering warmth and laid-back sophistication. It’s perfect for casual outings, gym sessions, or simply lounging in comfort while maintaining a fashionable edge.",
     "isFeature": false,
@@ -54,7 +54,7 @@
   {
     "id": "5",
     "name": "Women Jacket",
-    "price": 22.99,
+    "price": 6999.99,
     "brand": "Puma",
     "description": "A contemporary women’s jacket that blends modern design with lightweight comfort. Perfect for layering in transitional seasons, this jacket enhances your outfit with effortless style, whether you're headed to brunch, the gym, or a casual evening stroll.",
     "isFeature": false,
@@ -67,7 +67,7 @@
   {
     "id": "6",
     "name": "Men T-shirt",
-    "price": 129.99,
+    "price": 2999.99,
     "brand": "Balenciaga",
     "description": "An elevated essential for modern wardrobes, this premium men’s t-shirt combines luxury craftsmanship with a sleek, contemporary cut. Made from soft, breathable fabric, it offers unparalleled comfort and effortless style for both casual and elevated occasions.",
     "isFeature": false,
@@ -80,7 +80,7 @@
   {
     "id": "7",
     "name": "Baggy Jeans",
-    "price": 45.99,
+    "price": 4599.99,
     "brand": "Tommy Hilfiger",
     "description": "These laid-back, relaxed-fit baggy jeans deliver a trendy, street-inspired look while ensuring maximum comfort and versatility. Ideal for pairing with sneakers and oversized tees, they’re the perfect staple for your casual, everyday collection.",
     "isFeature": false,
@@ -93,7 +93,7 @@
   {
     "id": "8",
     "name": "Cap",
-    "price": 27.99,
+    "price": 999.99,
     "brand": "Gucci",
     "description": "A stylish and functional cap crafted to complement any outfit, offering both sun protection and a signature touch of luxury. With a timeless design and premium construction, it’s the perfect accessory for outdoor adventures and city strolls alike.",
     "isFeature": true,
@@ -106,7 +106,7 @@
   {
     "id": "11",
     "name": "Men Shoe",
-    "price": 79.99,
+    "price": 7999.99,
     "brand": "North Face",
     "description": "Engineered for durability and all-day support, this men’s shoe combines sleek aesthetics with advanced comfort technology. Whether for casual city walks or weekend getaways, it delivers versatile style and performance you can rely on.",
     "isFeature": true,
@@ -119,7 +119,7 @@
   {
     "id": "12",
     "name": "Maxi Dress",
-    "price": 69.99,
+    "price": 4999.99,
     "brand": "Versace",
     "description": "An exquisite and gracefully flowing maxi dress, perfect for formal events, evening gatherings, or special occasions. Its elegant silhouette and luxurious fabric ensure you’ll stand out with timeless style and sophisticated charm.",
     "isFeature": true,
